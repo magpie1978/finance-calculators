@@ -5,8 +5,8 @@
 
 
 /* BODY */
-body {background-color: #EFEFEF;}
-.bold-text { font-weight: bold; }
+/* body {background-color: #EFEFEF;} */
+/* .bold-text { font-weight: bold; } */
 
 hide {display: none; /* This will hide the <em> tags from view but keep them in the document flow */}
 
