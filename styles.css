@@ -54,6 +54,7 @@ hide {display: none; /* This will hide the <em> tags from view but keep them in 
 /* CONTAINERS */
 .fixed_container { width: 80%; margin: 0 auto; padding: 20px; background-color: #d2f2f2; border-radius: 10px /* Rounded edges */; font-family: 'Roboto', sans-serif; }
 .container { width: 80%; margin: 0 auto; padding: 20px; background-color: #ffffff; border-radius: 10px /* Rounded edges */; font-family: 'Roboto', sans-serif;}
+.container1a { width: 80%; margin: 50px auto; padding: 20px; background: #FFFFFF; border-radius: 8px /* Rounded edges */; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); font-family: 'Roboto', sans-serif;}
 .container2 { width: 40%; margin: 0 auto; padding: 20px; background-color: #ffffff; border-radius: 10px /* Rounded edges */; font-family: 'Roboto', sans-serif;}
 .dropdown-container {display: flex; gap: 20px; align-items: center;}
 .dropdown-container div {display: flex; flex-direction: column;}
