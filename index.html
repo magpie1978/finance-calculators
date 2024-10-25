@@ -37,21 +37,21 @@
 <!-- ===============================================-->
 
     <script>
-      const today = new Date();  //Get today's date
-      const maxDate = today.toISOString().split('T')[0];  //set max date in datepicker to today's date
+      const today = new Date();                            //Get today's date
+      const maxDate = today.toISOString().split('T')[0];   //Set max date in datepicker to today's date
       datepicker.max = maxDate;
 
       // Function to save entered data and move to next page
       function saveAndRedirect() {
         // save entered data into constants
-        const dateOfBirth = document.getElementById("datepicker").value;  //set date of birth constant
-        const selectedDate = new Date(dateOfBirth);  //set selected date to date of birth value
-        const yearOfBirth = selectedDate.getFullYear();  //set year of birth constant
-        const yearWhen75 = selectedDate.getFullYear() + 75;  //work out year when user is 75
-        const statePensionAge = selectedDate.getFullYear() + 67;  //work out year when user is reaches State Pension Age
-        const monthOfBirth = selectedDate.getMonth() + 1;  //set month of birth constant
+        const dateOfBirth = document.getElementById("datepicker").value;    //set date of birth constant
+        const selectedDate = new Date(dateOfBirth);                         //set selected date to date of birth value
+        const yearOfBirth = selectedDate.getFullYear();                     //set year of birth constant
+        const yearWhen75 = selectedDate.getFullYear() + 75;                 //work out year when user is 75
+        const statePensionAge = selectedDate.getFullYear() + 67;            //work out year when user is reaches State Pension Age
+        const monthOfBirth = selectedDate.getMonth() + 1;                   //set month of birth constant
         const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
-        const monthOfBirthName = monthNames[selectedDate.getMonth()]; //set month of birth name caonstant
+        const monthOfBirthName = monthNames[selectedDate.getMonth()];       //set month of birth name caonstant
 
         // Calculate the minimum and maximum allowed years for the retirement start year
         const minYear = new Date(dateOfBirth).getFullYear() + 55;
