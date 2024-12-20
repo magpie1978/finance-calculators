@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airport Grouping</title>
+</head>
+<body>
+    <h1>Airport Grouping Application</h1>
+    <form action="/run" method="POST">
+        <label for="aircraft">Select Aircraft Type:</label>
+        <select name="aircraft" id="aircraft">
+            <option value="A380">A380</option>
+            <option value="B747">B747</option>
+        </select>
+        <br><br>
+        <button type="submit">Start</button>
+    </form>
+</body>
+</html>
