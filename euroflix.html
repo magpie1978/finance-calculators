@@ -63,12 +63,24 @@
       background: #000;
       position: relative;
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .video-item video {
+    .thumbnail {
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    .video-title {
+      color: #333;
+      background: #fff;
+      padding: 8px;
+      font-size: 0.95rem;
+      text-align: center;
+      width: 100%;
     }
 
     .modal {
@@ -121,12 +133,14 @@
     
     <div class="carousel-container">
       <div class="carousel-track" id="carouselTrack">
-        <!-- AWS S3 Video -->
-        <div class="video-item">
-          <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4" controls></video>
+        
+        <!-- Updated Video Item -->
+        <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
+          <img src="thumbnails/conchita.jpg" alt="Conchita Wurst" class="thumbnail">
+          <div class="video-title">Austria 2014 - Conchita Wurst</div>
         </div>
 
-        <!-- Add more videos as needed -->
+        <!-- Other videos can follow with similar structure -->
         <div class="video-item"><video src="video2.mp4" controls></video></div>
         <div class="video-item"><video src="video3.mp4" controls></video></div>
         <div class="video-item"><video src="video4.mp4" controls></video></div>
@@ -153,14 +167,15 @@
   <script>
     function scrollCarousel(direction) {
       const track = document.getElementById('carouselTrack');
-      const scrollAmount = 1280; // scrolls through ~4 videos
+      const scrollAmount = 1280;
       track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
     }
 
-    function openModalWithVideo(videoHTML) {
+    function openModalWithVideo(src) {
       const modal = document.getElementById("videoModal");
       const container = document.getElementById("modalVideoContainer");
-      container.innerHTML = videoHTML;
+      const modalVideo = `<video src="${src}" controls autoplay></video>`;
+      container.innerHTML = modalVideo;
       modal.style.display = "flex";
     }
 
@@ -168,19 +183,8 @@
       const modal = document.getElementById("videoModal");
       const container = document.getElementById("modalVideoContainer");
       modal.style.display = "none";
-      container.innerHTML = ""; // stops video playback
+      container.innerHTML = "";
     }
-
-    // Add click listeners to all video elements
-    window.onload = function () {
-      document.querySelectorAll(".carousel-track video").forEach(video => {
-        video.addEventListener("click", () => {
-          const src = video.getAttribute("src");
-          const modalVideo = `<video src="${src}" controls autoplay></video>`;
-          openModalWithVideo(modalVideo);
-        });
-      });
-    };
   </script>
 
 </body>
