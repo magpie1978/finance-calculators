@@ -5,7 +5,6 @@
   <title>Video Carousel</title>
   
   <style>
-
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -65,10 +64,12 @@
       background: #000;
     }
 
-    .video-item video {
+    .video-item video,
+    .video-item iframe {
       width: 100%;
       height: auto;
       display: block;
+      cursor: pointer;
     }
 
     .modal {
@@ -111,12 +112,8 @@
       font-weight: bold;
       cursor: pointer;
     }
-
   </style>
-
 </head>
-
-  
 <body>
 
   <h2>Video Carousel</h2>
@@ -126,7 +123,7 @@
     
     <div class="carousel-container">
       <div class="carousel-track" id="carouselTrack">
-        <div class="video-item"><iframe src="https://drive.google.com/file/d/1tXU36v4E2o5pZI98wmLS5AZTox5M3agH/preview" width="300" height="200" allow="autoplay" allowfullscreen> </iframe> </div>
+        <div class="video-item"><iframe src="https://drive.google.com/file/d/1tXU36v4E2o5pZI98wmLS5AZTox5M3agH/preview" width="300" height="200" allow="autoplay" allowfullscreen></iframe></div>
         <div class="video-item"><video src="video1.mp4" controls></video></div>
         <div class="video-item"><video src="video2.mp4" controls></video></div>
         <div class="video-item"><video src="video3.mp4" controls></video></div>
@@ -139,17 +136,18 @@
         <div class="video-item"><video src="video10.mp4" controls></video></div>
       </div>
     </div>
-  <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
+
+    <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
   </div>  
   
   <!-- Modal Overlay -->
   <div id="videoModal" class="modal" onclick="closeModal()">
     <div class="modal-content" onclick="event.stopPropagation()">
-    <span class="close-button" onclick="closeModal()">&times;</span>
-    <div id="modalVideoContainer"></div>
+      <span class="close-button" onclick="closeModal()">&times;</span>
+      <div id="modalVideoContainer"></div>
+    </div>
   </div>
 
-  
   <script>
     function scrollCarousel(direction) {
       const track = document.getElementById('carouselTrack');
@@ -166,6 +164,31 @@
 
     function closeModal() {
       const modal = document.getElementById("videoModal");
+      const container = document.getElementById("modalVideoContainer");
+      container.innerHTML = "";
+      modal.style.display = "none";
+    }
+
+    // Set up event listeners after DOM is ready
+    window.onload = function () {
+      // For <video> elements
+      document.querySelectorAll(".carousel-track video").forEach(video => {
+        video.addEventListener("click", () => {
+          const src = video.getAttribute("src");
+          const modalVideo = `<video src="${src}" controls autoplay></video>`;
+          openModalWithVideo(modalVideo);
+        });
+      });
+
+      // For <iframe> elements (Google Drive)
+      document.querySelectorAll(".carousel-track iframe").forEach(iframe => {
+        iframe.addEventListener("click", () => {
+          const src = iframe.getAttribute("src");
+          const modalIframe = `<iframe src="${src}" width="800" height="450" allow="autoplay" allowfullscreen></iframe>`;
+          openModalWithVideo(modalIframe);
+        });
+      });
+    };
   </script>
 
 </body>
