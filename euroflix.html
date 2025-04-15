@@ -68,6 +68,48 @@
       height: auto;
       display: block;
     }
+
+    .modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #000;
+  padding: 20px;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content iframe,
+.modal-content video {
+  max-width: 100%;
+  max-height: 80vh;
+}
+
+.close-button {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
   </style>
 </head>
 <body>
@@ -93,7 +135,17 @@
       </div>
     </div>
 
-    <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
+    <!-- Modal Overlay -->
+    <div id="videoModal" class="modal" onclick="closeModal()">
+      <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="close-button" onclick="closeModal()">&times;</span>
+      <div id="modalVideoContainer"></div>
+    </div>
+
+  </div>
+    
+  <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
+  
   </div>
 
   <script>
@@ -102,6 +154,18 @@
       const scrollAmount = 1280;
       track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
     }
+
+    function openModalWithVideo(videoHTML) {
+  const modal = document.getElementById("videoModal");
+  const container = document.getElementById("modalVideoContainer");
+  container.innerHTML = videoHTML;
+  modal.style.display = "flex";
+}
+
+function closeModal() {
+  const modal = document.getElementById("videoModal");
+ 
+
   </script>
 
 </body>
