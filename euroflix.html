@@ -60,20 +60,32 @@
       flex: 0 0 auto;
       width: 300px;
       margin: 10px;
-      background: #000;
       position: relative;
-      cursor: pointer;
       display: flex;
       flex-direction: column;
       align-items: center;
       background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
     }
 
-    .video-item video,
-    .video-item img {
+    .preview-container {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+
+    .preview-container img,
+    .preview-container video {
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    .preview-container video {
+      display: none;
     }
 
     .video-title {
@@ -128,7 +140,7 @@
 </head>
 <body>
 
-  <h2>EuroFlix</h2>
+  <h2>EuroFlix - Winners</h2>
 
   <div class="carousel-wrapper">
     <button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>
@@ -136,31 +148,25 @@
     <div class="carousel-container">
       <div class="carousel-track" id="carouselTrack">
         
-        
-
-
         <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
-          <img src="https://euroflix.s3.eu-north-1.amazonaws.com/conchita.jpeg" alt="Austria 2014 - Conchita Wurst">
-          <div class="video-title">Austria 2014 <br> Conchita Wurst <br> Rise Like A Phoenix</div>
+          <div class="preview-container"
+               onmouseover="showPreview(this)"
+               onmouseout="hidePreview(this)">
+            <img src="https://euroflix.s3.eu-north-1.amazonaws.com/conchita.jpeg" alt="Austria 2014 - Conchita Wurst">
+            <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4" muted loop></video>
+          </div>
+          <div class="video-title">Austria 2014 - Conchita Wurst</div>
         </div>
 
-
-        
-        <!-- Other videos (not yet updated) -->
         <div class="video-item"><video src="video2.mp4" controls></video></div>
         <div class="video-item"><video src="video3.mp4" controls></video></div>
         <div class="video-item"><video src="video4.mp4" controls></video></div>
         <div class="video-item"><video src="video5.mp4" controls></video></div>
-        <div class="video-item"><video src="video6.mp4" controls></video></div>
-        <div class="video-item"><video src="video7.mp4" controls></video></div>
-        <div class="video-item"><video src="video8.mp4" controls></video></div>
-        <div class="video-item"><video src="video9.mp4" controls></video></div>
-        <div class="video-item"><video src="video10.mp4" controls></video></div>
       </div>
     </div>
 
     <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
-  </div>  
+  </div>
 
   <!-- Modal -->
   <div id="videoModal" class="modal" onclick="closeModal()">
@@ -190,6 +196,23 @@
       const container = document.getElementById("modalVideoContainer");
       modal.style.display = "none";
       container.innerHTML = "";
+    }
+
+    function showPreview(container) {
+      const img = container.querySelector('img');
+      const video = container.querySelector('video');
+      img.style.display = 'none';
+      video.style.display = 'block';
+      video.currentTime = 0;
+      video.play();
+    }
+
+    function hidePreview(container) {
+      const img = container.querySelector('img');
+      const video = container.querySelector('video');
+      video.pause();
+      video.style.display = 'none';
+      img.style.display = 'block';
     }
   </script>
 
