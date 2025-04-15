@@ -134,13 +134,18 @@
       <div class="carousel-track" id="carouselTrack">
         <!-- Google Drive embed with overlay -->
         <div class="video-item">
-          <iframe src="https://www.youtube.com/embed/SaolVEJEjV4" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"> </iframe>
-          <div class="iframe-overlay" data-src="https://www.youtube.com/embed/SaolVEJEjV4"></div>
+          <iframe src="https://drive.google.com/file/d/1tXU36v4E2o5pZI98wmLS5AZTox5M3agH/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="iframe-overlay" data-src="https://drive.google.com/file/d/1tXU36v4E2o5pZI98wmLS5AZTox5M3agH/preview"></div>
         </div>
 
+        <!-- YouTube video embed with overlay -->
+        <div class="video-item">
+          <iframe src="https://www.youtube.com/embed/SaolVEJEjV4?autoplay=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <div class="iframe-overlay" data-src="https://www.youtube.com/embed/SaolVEJEjV4?autoplay=1&rel=0&modestbranding=1"></div>
+        </div>
 
-        
         <!-- Regular videos -->
+        <div class="video-item"><video src="video1.mp4" controls></video></div>
         <div class="video-item"><video src="video2.mp4" controls></video></div>
         <div class="video-item"><video src="video3.mp4" controls></video></div>
         <div class="video-item"><video src="video4.mp4" controls></video></div>
@@ -195,11 +200,14 @@
         });
       });
 
-      // Handle iframe overlays
+      // Handle iframe overlays (Google Drive and YouTube)
       document.querySelectorAll(".iframe-overlay").forEach(overlay => {
         overlay.addEventListener("click", () => {
           const src = overlay.getAttribute("data-src");
-          const autoplaySrc = src.includes('?') ? `${src}&autoplay=1` : `${src}?autoplay=1`;
+          const autoplaySrc = src.includes('?') 
+            ? `${src}&autoplay=1&rel=0&modestbranding=1` 
+            : `${src}?autoplay=1&rel=0&modestbranding=1`;
+          
           const modalIframe = `<iframe src="${autoplaySrc}" width="800" height="450" allow="autoplay" allowfullscreen></iframe>`;
           openModalWithVideo(modalIframe);
         });
