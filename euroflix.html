@@ -139,10 +139,8 @@
         <div class="video-item"><video src="video10.mp4" controls></video></div>
       </div>
     </div>
-  </div>
-    
   <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
-
+  </div>  
   
   <!-- Modal Overlay -->
   <div id="videoModal" class="modal" onclick="closeModal()">
@@ -160,16 +158,14 @@
     }
 
     function openModalWithVideo(videoHTML) {
-  const modal = document.getElementById("videoModal");
-  const container = document.getElementById("modalVideoContainer");
-  container.innerHTML = videoHTML;
-  modal.style.display = "flex";
-}
+      const modal = document.getElementById("videoModal");
+      const container = document.getElementById("modalVideoContainer");
+      container.innerHTML = videoHTML;
+      modal.style.display = "flex";
+    }
 
-function closeModal() {
-  const modal = document.getElementById("videoModal");
- 
-
+    function closeModal() {
+      const modal = document.getElementById("videoModal");
   </script>
 
 </body>
