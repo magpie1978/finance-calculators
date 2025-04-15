@@ -30,24 +30,29 @@
     }
 
     .carousel-button {
-      width: 50px;
-      height: 50px;
-      background: rgba(0, 0, 0, 0.6);
-      border: none;
+      width: 25px; /* Thinner button */
+      height: 25px; /* Thinner button */
+      background: rgba(0, 0, 0, 0.4); /* Slightly more transparent background */
+      border: 1px solid rgba(255, 255, 255, 0.6); /* Thin border */
       color: white;
-      font-size: 1.8rem;
+      font-size: 1.5rem; /* Smaller icon size */
       cursor: pointer;
       margin: 0 10px;
-      border-radius: 50%;
+      border-radius: 50%; /* Rounded edges */
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background 0.3s;
-    }
-    
-    .carousel-button:hover {
-      background: rgba(0, 0, 0, 0.8);
-    }
+      transition: background 0.3s, transform 0.3s;
+      }
+      
+      .carousel-button:hover {
+        background: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+        transform: scale(1.1); /* Slight scale effect on hover */
+      }
+      
+      .carousel-button:active {
+        transform: scale(1); /* Reset to original size when clicked */
+      }
 
     .carousel-container {
       position: relative;
