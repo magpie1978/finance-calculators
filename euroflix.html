@@ -9,7 +9,13 @@
       margin: 0;
       padding: 40px 20px;
       background: #f0f0f0;
-      text-align: center;
+    }
+
+    .carousel-section {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto 30px auto;
+      text-align: left;
     }
 
     .carousel-wrapper {
@@ -33,7 +39,7 @@
       justify-content: center;
       transition: background 0.3s;
     }
-    
+
     .carousel-button:hover {
       background: rgba(0, 0, 0, 0.8);
     }
@@ -76,7 +82,7 @@
 
     .preview-container {
       width: 100%;
-      height: 170px; /* Fixed height for both video & image */
+      height: 170px;
       position: relative;
     }
 
@@ -147,121 +153,54 @@
 </head>
 <body>
 
-  <h4>Eurovision Winners</h4>
+  <div class="carousel-section">
+    <h4>Eurovision Winners</h4>
 
-  <div class="carousel-wrapper">
-    <button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>
-    
-    <div class="carousel-container">
-      <div class="carousel-track" id="carouselTrack">
-        
-        <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
-          <div class="preview-container"
-               onmouseover="showPreview(this)"
-               onmouseout="hidePreview(this)">
-            <img src="https://euroflix.s3.eu-north-1.amazonaws.com/conchita.jpeg" alt="Austria 2014 - Conchita Wurst">
-            <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4" muted loop></video>
+    <div class="carousel-wrapper">
+      <button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>
+
+      <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+
+          <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
+            <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+              <img src="https://euroflix.s3.eu-north-1.amazonaws.com/conchita.jpeg" alt="Austria 2014">
+              <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4" muted loop></video>
+            </div>
+            <div class="video-title">Conchita Wurst <br> Rise Like A Phoenix <br> 2014</div>
           </div>
-          <div class="video-title">Conchita Wurst <br> Rise Like A Phoenix <br> 2014</div>
-        </div>
 
-        <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
-          <div class="preview-container"
-               onmouseover="showPreview(this)"
-               onmouseout="hidePreview(this)">
-            <img src="https://euroflix.s3.eu-north-1.amazonaws.com/conchita.jpeg" alt="Austria 2014 - Conchita Wurst">
-            <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4" muted loop></video>
+          <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2015+-+Sweden+-+M%C3%A5ns+Zelmerl%C3%B6w+-+Heroes.mp4')">
+            <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+              <img src="https://euroflix.s3.eu-north-1.amazonaws.com/mans.jpeg" alt="Sweden 2015">
+              <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2015+-+Sweden+-+M%C3%A5ns+Zelmerl%C3%B6w+-+Heroes.mp4" muted loop></video>
+            </div>
+            <div class="video-title">Måns Zelmerlöw <br> Heroes <br> 2015</div>
           </div>
-          <div class="video-title">Måns Zelmerlöw <br> Heroes <br> 2015</div>
-        </div>
 
-        <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
-          <div class="preview-container"
-               onmouseover="showPreview(this)"
-               onmouseout="hidePreview(this)">
-            <img src="https://euroflix.s3.eu-north-1.amazonaws.com/conchita.jpeg" alt="Austria 2014 - Conchita Wurst">
-            <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4" muted loop></video>
+          <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2018+-+Israel+-+Netta+-+Toy.mp4')">
+            <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+              <img src="https://euroflix.s3.eu-north-1.amazonaws.com/netta.jpeg" alt="Israel 2018">
+              <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2018+-+Israel+-+Netta+-+Toy.mp4" muted loop></video>
+            </div>
+            <div class="video-title">Netta <br> Toy <br> 2018</div>
           </div>
-          <div class="video-title">Jamala <br> 1944 <br> 2016</div>
-        </div>
 
-        <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
-          <div class="preview-container"
-               onmouseover="showPreview(this)"
-               onmouseout="hidePreview(this)">
-            <img src="https://euroflix.s3.eu-north-1.amazonaws.com/conchita.jpeg" alt="Austria 2014 - Conchita Wurst">
-            <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4" muted loop></video>
+          <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2021+-+Italy+-+M%C3%A5neskin+-+Zitti+e+buoni.mp4')">
+            <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+              <img src="https://euroflix.s3.eu-north-1.amazonaws.com/maneskin.jpeg" alt="Italy 2021">
+              <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2021+-+Italy+-+M%C3%A5neskin+-+Zitti+e+buoni.mp4" muted loop></video>
+            </div>
+            <div class="video-title">Måneskin <br> Zitti e buoni <br> 2021</div>
           </div>
-          <div class="video-title">Salvador Sobral <br> Amar pelos dois <br> 2017</div>
+
+          <!-- Add more video-items if needed -->
+
         </div>
-
-        <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
-          <div class="preview-container"
-               onmouseover="showPreview(this)"
-               onmouseout="hidePreview(this)">
-            <img src="https://euroflix.s3.eu-north-1.amazonaws.com/conchita.jpeg" alt="Austria 2014 - Conchita Wurst">
-            <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4" muted loop></video>
-          </div>
-          <div class="video-title">Netta <br> Toy <br> 2018</div>
-        </div>
-
-        <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
-          <div class="preview-container"
-               onmouseover="showPreview(this)"
-               onmouseout="hidePreview(this)">
-            <img src="https://euroflix.s3.eu-north-1.amazonaws.com/conchita.jpeg" alt="Austria 2014 - Conchita Wurst">
-            <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4" muted loop></video>
-          </div>
-          <div class="video-title">Duncan Lawrence <br> Arcade <br> 2019</div>
-        </div>
-
-        <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
-          <div class="preview-container"
-               onmouseover="showPreview(this)"
-               onmouseout="hidePreview(this)">
-            <img src="https://euroflix.s3.eu-north-1.amazonaws.com/conchita.jpeg" alt="Austria 2014 - Conchita Wurst">
-            <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4" muted loop></video>
-          </div>
-          <div class="video-title">Måneskin <br> Zitti e buoni <br> 2021</div>
-        </div>
-
-
-        <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
-          <div class="preview-container"
-               onmouseover="showPreview(this)"
-               onmouseout="hidePreview(this)">
-            <img src="https://euroflix.s3.eu-north-1.amazonaws.com/conchita.jpeg" alt="Austria 2014 - Conchita Wurst">
-            <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4" muted loop></video>
-          </div>
-          <div class="video-title">Kalush Orchestra <br> Stefania <br> 2022</div>
-        </div>
-
-        <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
-          <div class="preview-container"
-               onmouseover="showPreview(this)"
-               onmouseout="hidePreview(this)">
-            <img src="https://euroflix.s3.eu-north-1.amazonaws.com/conchita.jpeg" alt="Austria 2014 - Conchita Wurst">
-            <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4" muted loop></video>
-          </div>
-          <div class="video-title">Loreen <br> Tattoo <br> 2023</div>
-        </div>
-
-        
-        <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
-          <div class="preview-container"
-               onmouseover="showPreview(this)"
-               onmouseout="hidePreview(this)">
-            <img src="https://euroflix.s3.eu-north-1.amazonaws.com/conchita.jpeg" alt="Austria 2014 - Conchita Wurst">
-            <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4" muted loop></video>
-          </div>
-          <div class="video-title">Nemo <br> The Code <br> 2024</div>
-        </div>
-
-
       </div>
-    </div>
 
-    <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
+      <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
+    </div>
   </div>
 
   <!-- Modal -->
@@ -314,3 +253,4 @@
 
 </body>
 </html>
+
