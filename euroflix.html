@@ -7,14 +7,37 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: 40px 20px;
       background: #f0f0f0;
+      text-align: center;
+    }
+
+    .carousel-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-button {
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      padding: 15px;
+      cursor: pointer;
+      margin: 0 10px;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+
+    .carousel-button:hover {
+      background: rgba(0, 0, 0, 0.8);
     }
 
     .carousel-container {
       position: relative;
       width: 90%;
-      margin: auto;
+      max-width: 1200px;
       overflow: hidden;
       border: 1px solid #ccc;
       background: #fff;
@@ -45,54 +68,37 @@
       height: auto;
       display: block;
     }
-
-    .carousel-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.5);
-      border: none;
-      color: white;
-      font-size: 2rem;
-      padding: 10px;
-      cursor: pointer;
-      z-index: 1;
-    }
-
-    .carousel-button.left {
-      left: 10px;
-    }
-
-    .carousel-button.right {
-      right: 10px;
-    }
   </style>
 </head>
 <body>
 
-  <h1> EuroFlix</h1>
-  <div class="carousel-container">
-    <button class="carousel-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-    <div class="carousel-track" id="carouselTrack">
-      <!-- Repeat this block for 10 videos -->
-      <div class="video-item"><video src="https://drive.google.com/file/d/1tXU36v4E2o5pZI98wmLS5AZTox5M3agH/preview" controls></video></div>
-      <div class="video-item"><video src="video2.mp4" controls></video></div>
-      <div class="video-item"><video src="video3.mp4" controls></video></div>
-      <div class="video-item"><video src="video4.mp4" controls></video></div>
-      <div class="video-item"><video src="video5.mp4" controls></video></div>
-      <div class="video-item"><video src="video6.mp4" controls></video></div>
-      <div class="video-item"><video src="video7.mp4" controls></video></div>
-      <div class="video-item"><video src="video8.mp4" controls></video></div>
-      <div class="video-item"><video src="video9.mp4" controls></video></div>
-      <div class="video-item"><video src="video10.mp4" controls></video></div>
+  <h2>Video Carousel</h2>
+
+  <div class="carousel-wrapper">
+    <button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>
+    
+    <div class="carousel-container">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="video-item"><video src="video1.mp4" controls></video></div>
+        <div class="video-item"><video src="video2.mp4" controls></video></div>
+        <div class="video-item"><video src="video3.mp4" controls></video></div>
+        <div class="video-item"><video src="video4.mp4" controls></video></div>
+        <div class="video-item"><video src="video5.mp4" controls></video></div>
+        <div class="video-item"><video src="video6.mp4" controls></video></div>
+        <div class="video-item"><video src="video7.mp4" controls></video></div>
+        <div class="video-item"><video src="video8.mp4" controls></video></div>
+        <div class="video-item"><video src="video9.mp4" controls></video></div>
+        <div class="video-item"><video src="video10.mp4" controls></video></div>
+      </div>
     </div>
-    <button class="carousel-button right" onclick="scrollCarousel(1)">&#10095;</button>
+
+    <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
   </div>
 
   <script>
     function scrollCarousel(direction) {
       const track = document.getElementById('carouselTrack');
-      const scrollAmount = 320; // Width + margin
+      const scrollAmount = 1280;
       track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
     }
   </script>
