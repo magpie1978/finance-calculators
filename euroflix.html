@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Video Carousel</title>
-  
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -58,18 +57,28 @@
     }
 
     .video-item {
+      position: relative;
       flex: 0 0 auto;
       width: 300px;
       margin: 10px;
       background: #000;
     }
 
-    .video-item video,
-    .video-item iframe {
+    .video-item iframe,
+    .video-item video {
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    .iframe-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       cursor: pointer;
+      z-index: 10;
     }
 
     .modal {
@@ -123,7 +132,13 @@
     
     <div class="carousel-container">
       <div class="carousel-track" id="carouselTrack">
-        <div class="video-item"><iframe src="https://drive.google.com/file/d/1tXU36v4E2o5pZI98wmLS5AZTox5M3agH/preview" width="300" height="200" allow="autoplay" allowfullscreen></iframe></div>
+        <!-- Google Drive embed with overlay -->
+        <div class="video-item">
+          <iframe src="https://drive.google.com/file/d/1tXU36v4E2o5pZI98wmLS5AZTox5M3agH/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="iframe-overlay" data-src="https://drive.google.com/file/d/1tXU36v4E2o5pZI98wmLS5AZTox5M3agH/preview"></div>
+        </div>
+
+        <!-- Regular videos -->
         <div class="video-item"><video src="video1.mp4" controls></video></div>
         <div class="video-item"><video src="video2.mp4" controls></video></div>
         <div class="video-item"><video src="video3.mp4" controls></video></div>
@@ -169,9 +184,8 @@
       modal.style.display = "none";
     }
 
-    // Set up event listeners after DOM is ready
     window.onload = function () {
-      // For <video> elements
+      // Handle <video> clicks
       document.querySelectorAll(".carousel-track video").forEach(video => {
         video.addEventListener("click", () => {
           const src = video.getAttribute("src");
@@ -180,10 +194,10 @@
         });
       });
 
-      // For <iframe> elements (Google Drive)
-      document.querySelectorAll(".carousel-track iframe").forEach(iframe => {
-        iframe.addEventListener("click", () => {
-          const src = iframe.getAttribute("src");
+      // Handle iframe overlays
+      document.querySelectorAll(".iframe-overlay").forEach(overlay => {
+        overlay.addEventListener("click", () => {
+          const src = overlay.getAttribute("data-src");
           const modalIframe = `<iframe src="${src}" width="800" height="450" allow="autoplay" allowfullscreen></iframe>`;
           openModalWithVideo(modalIframe);
         });
