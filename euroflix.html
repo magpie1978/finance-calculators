@@ -199,7 +199,8 @@
       document.querySelectorAll(".iframe-overlay").forEach(overlay => {
         overlay.addEventListener("click", () => {
           const src = overlay.getAttribute("data-src");
-          const modalIframe = `<iframe src="${src}" width="800" height="450" allow="autoplay" allowfullscreen></iframe>`;
+          const autoplaySrc = src.includes('?') ? `${src}&autoplay=1` : `${src}?autoplay=1`;
+          const modalIframe = `<iframe src="${autoplaySrc}" width="800" height="450" allow="autoplay" allowfullscreen></iframe>`;
           openModalWithVideo(modalIframe);
         });
       });
