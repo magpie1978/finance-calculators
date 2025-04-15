@@ -2,52 +2,145 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AWS S3 Video Test</title>
+  <title>Video Carousel with AWS S3</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background: #f0f0f0;
+      text-align: center;
+    }
+
+    .carousel-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-button {
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      padding: 15px;
+      cursor: pointer;
+      margin: 0 10px;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+
+    .carousel-button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 90%;
+      max-width: 1200px;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background: #fff;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.3s ease;
+      scroll-behavior: smooth;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .video-item {
+      flex: 0 0 auto;
+      width: 300px;
+      margin: 10px;
+      background: #000;
+      position: relative;
+      cursor: pointer;
+    }
+
     .video-item video {
       width: 100%;
-      max-width: 600px;
-      cursor: pointer;
+      height: auto;
+      display: block;
     }
 
     .modal {
       display: none;
       position: fixed;
       z-index: 9999;
-      top: 0;
       left: 0;
+      top: 0;
       width: 100vw;
       height: 100vh;
+      overflow: auto;
       background-color: rgba(0,0,0,0.8);
       justify-content: center;
       align-items: center;
     }
 
+    .modal-content {
+      position: relative;
+      background-color: #000;
+      padding: 20px;
+      max-width: 90%;
+      max-height: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .modal-content video {
-      max-width: 90vw;
+      max-width: 100%;
       max-height: 80vh;
     }
 
     .close-button {
       position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 2rem;
+      top: 5px;
+      right: 15px;
       color: white;
+      font-size: 2rem;
+      font-weight: bold;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <h2>AWS S3 Video Test</h2>
+  <h2>Video Carousel with Modal</h2>
 
-  <div class="video-item">
-    <video width="800" controls>
-      <source src="https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
+  <div class="carousel-wrapper">
+    <button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>
+    
+    <div class="carousel-container">
+      <div class="carousel-track" id="carouselTrack">
+        <!-- AWS S3 Video -->
+        <div class="video-item">
+          <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4" controls></video>
+        </div>
+
+        <!-- Add more videos as needed -->
+        <div class="video-item"><video src="video2.mp4" controls></video></div>
+        <div class="video-item"><video src="video3.mp4" controls></video></div>
+        <div class="video-item"><video src="video4.mp4" controls></video></div>
+        <div class="video-item"><video src="video5.mp4" controls></video></div>
+        <div class="video-item"><video src="video6.mp4" controls></video></div>
+        <div class="video-item"><video src="video7.mp4" controls></video></div>
+        <div class="video-item"><video src="video8.mp4" controls></video></div>
+        <div class="video-item"><video src="video9.mp4" controls></video></div>
+        <div class="video-item"><video src="video10.mp4" controls></video></div>
+      </div>
+    </div>
+
+    <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
+  </div>  
 
   <!-- Modal -->
   <div id="videoModal" class="modal" onclick="closeModal()">
@@ -58,18 +151,36 @@
   </div>
 
   <script>
-    const s3Video = document.getElementById('s3Video');
-    s3Video.addEventListener('click', () => {
-      const src = s3Video.getAttribute('src');
-      const modalHTML = `<video src="${src}" controls autoplay></video>`;
-      document.getElementById('modalVideoContainer').innerHTML = modalHTML;
-      document.getElementById('videoModal').style.display = 'flex';
-    });
+    function scrollCarousel(direction) {
+      const track = document.getElementById('carouselTrack');
+      const scrollAmount = 1280; // scrolls through ~4 videos
+      track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
+
+    function openModalWithVideo(videoHTML) {
+      const modal = document.getElementById("videoModal");
+      const container = document.getElementById("modalVideoContainer");
+      container.innerHTML = videoHTML;
+      modal.style.display = "flex";
+    }
 
     function closeModal() {
-      document.getElementById('videoModal').style.display = 'none';
-      document.getElementById('modalVideoContainer').innerHTML = '';
+      const modal = document.getElementById("videoModal");
+      const container = document.getElementById("modalVideoContainer");
+      modal.style.display = "none";
+      container.innerHTML = ""; // stops video playback
     }
+
+    // Add click listeners to all video elements
+    window.onload = function () {
+      document.querySelectorAll(".carousel-track video").forEach(video => {
+        video.addEventListener("click", () => {
+          const src = video.getAttribute("src");
+          const modalVideo = `<video src="${src}" controls autoplay></video>`;
+          openModalWithVideo(modalVideo);
+        });
+      });
+    };
   </script>
 
 </body>
