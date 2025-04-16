@@ -1,3 +1,53 @@
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1000px; /* adjust based on design */
+  margin: auto;
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: fit-content;
+}
+
+.video-item {
+  flex: 0 0 25%; /* 4 items per row */
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 40%;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.carousel-button:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.carousel-button:first-of-type {
+  left: 0;
+}
+
+.carousel-button:last-of-type {
+  right: 0;
+}
+
+
+
 body {
        font-family: Arial, sans-serif;
        margin: 0;
@@ -17,66 +67,11 @@ body {
        margin-left: 10px; /* aligns it with the first video item */
      }
  
-     .carousel-wrapper {
-       display: flex;
-       align-items: center;
-       justify-content: center;
-     }
  
-       .carousel-button {
-       background: transparent; /* No background */
-       border: none; /* Remove border */
-       color: #333; /* Dark color for chevrons */
-       font-size: 2rem; /* Larger chevrons */
-       cursor: pointer;
-       margin: 0 10px;
-       transition: color 0.3s, transform 0.3s;
-     }
+
  
-     .carousel-button:hover {
-       color: #000; /* Darker color on hover */
-       transform: scale(1.2); /* Slight scale effect on hover */
-     }
- 
-     .carousel-button:active {
-       transform: scale(1); /* Reset to original size when clicked */
-     }
- 
-     .carousel-container {
-       position: relative;
-       width: 90%;
-       max-width: 1200px;
-       overflow: hidden;
-       border: 1px solid #ccc;
-       background: #fff;
-     }
- 
-     .carousel-track {
-       display: flex;
-       transition: transform 0.3s ease;
-       scroll-behavior: smooth;
-       overflow-x: auto;
-       -webkit-overflow-scrolling: touch;
-       scrollbar-width: none;
-     }
- 
-     .carousel-track::-webkit-scrollbar {
-       display: none;
-     }
- 
-     .video-item {
-       flex: 0 0 auto;
-       width: 300px;
-       margin: 10px;
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       background: #fff;
-       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-       border-radius: 8px;
-       overflow: hidden;
-       cursor: pointer;
-     }
+  
+  
  
      .preview-container {
        width: 100%;
