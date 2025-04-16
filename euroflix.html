@@ -7,10 +7,10 @@
  <body>
 
   <link rel="stylesheet" type="text/css" href="euroflix_css.css">
-
+  <script type="text/javascript" src="euroflix.js"></script>
   
    <div class="carousel-section">
-     <h4>Eurovision Winners v0.1</h4>
+     <h4>Eurovision Winners v0.2</h4>
  
      <div class="carousel-wrapper">
        <button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>
@@ -280,46 +280,6 @@
        <div id="modalVideoContainer"></div>
      </div>
    </div>
- 
-   <script>
-     function scrollCarousel(direction) {
-       const track = document.getElementById('carouselTrack');
-       const scrollAmount = 1200;
-       track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-     }
- 
-     function openModalWithVideo(src) {
-       const modal = document.getElementById("videoModal");
-       const container = document.getElementById("modalVideoContainer");
-       const modalVideo = `<video src="${src}" controls autoplay></video>`;
-       container.innerHTML = modalVideo;
-       modal.style.display = "flex";
-     }
- 
-     function closeModal() {
-       const modal = document.getElementById("videoModal");
-       const container = document.getElementById("modalVideoContainer");
-       modal.style.display = "none";
-       container.innerHTML = "";
-     }
- 
-     function showPreview(container) {
-       const img = container.querySelector('img');
-       const video = container.querySelector('video');
-       img.style.display = 'none';
-       video.style.display = 'block';
-       video.currentTime = 0;
-       video.play();
-     }
- 
-     function hidePreview(container) {
-       const img = container.querySelector('img');
-       const video = container.querySelector('video');
-       video.pause();
-       video.style.display = 'none';
-       img.style.display = 'block';
-     }
-   </script>
  
  </body>
  </html>
