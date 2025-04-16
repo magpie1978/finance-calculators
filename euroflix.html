@@ -27,17 +27,17 @@
 
 .carousel-container {
   position: relative;
-  width: 1320px; /* 4 full video cards, assuming each is 320px including margin */
+  width: 1280px; /* 4 x 300px + 4 x 10px margin (left + right = 20px per item) = 1280px total */
   overflow: hidden;
   border: 1px solid #ccc;
   background: #fff;
+  box-sizing: content-box; /* Important so padding/border doesn’t shrink the usable width */
 }
 
 .video-item {
-  flex: 0 0 25%;
-  max-width: 25%;
-  box-sizing: border-box;
-  padding: 10px;
+  flex: 0 0 auto;
+  width: 300px;
+  margin: 0 10px; /* 20px total per item */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -219,7 +219,7 @@
  <body>
  
    <div class="carousel-section">
-     <h4>Eurovision Winners v0.3</h4>
+     <h4>Eurovision Winners v0.4</h4>
  
      <div class="carousel-wrapper">
        <button class="carousel-button" onclick="scrollCarousel('carouselTrackWinners', -1)">&#10094;</button>
