@@ -1,64 +1,28 @@
+/* Force the root background to black and all text white */
+html, body {
+  background-color: #000 !important;
+  color: #fff !important;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* If you have a wrapper around everything, make sure it’s black too */
 .carousel-wrapper {
   position: relative;
   overflow: hidden;
   width: 100%;
   max-width: 1000px;
   margin: auto;
+  background-color: #000;
 }
 
-.carousel-container {
-  overflow: hidden;
-  width: 100%;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease;
-  width: fit-content;
-}
-
-.video-item {
-  flex: 0 0 25%;
-  box-sizing: border-box;
-  padding: 10px;
-}
-
-.carousel-button {
-  position: absolute;
-  top: 40%;
-  background-color: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 1;
-}
-
-.carousel-button:hover {
-  background-color: rgba(255,255,255,0.1);
-}
-
-.carousel-button:first-of-type {
-  left: 0;
-}
-
-.carousel-button:last-of-type {
-  right: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 40px 20px;
-  background: #000;
-  color: #fff;
-  text-align: center;
-}
-
+/* Sections should inherit the black bg */
 .carousel-section {
+  background-color: #000;
   width: 90%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 40px auto;  /* moved padding from body */
   text-align: left;
 }
 
@@ -67,12 +31,32 @@ body {
   color: #fff;
 }
 
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+  background: transparent;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: fit-content;
+  background: transparent;
+}
+
+/* Video tiles */
+.video-item {
+  flex: 0 0 25%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+/* Preview (image/video) */
 .preview-container {
   width: 100%;
   height: 170px;
   position: relative;
 }
-
 .preview-container img,
 .preview-container video {
   width: 100%;
@@ -83,11 +67,11 @@ body {
   top: 0;
   left: 0;
 }
-
 .preview-container video {
   display: none;
 }
 
+/* Title bar under each item */
 .video-title {
   color: #fff;
   background: #111;
@@ -97,20 +81,34 @@ body {
   width: 100%;
 }
 
+/* Carousel arrows */
+.carousel-button {
+  position: absolute;
+  top: 40%;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+.carousel-button:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+.carousel-button:first-of-type { left: 0; }
+.carousel-button:last-of-type  { right: 0; }
+
+/* Modal overlay */
 .modal {
   display: none;
   position: fixed;
   z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: auto;
+  inset: 0;
   background-color: rgba(0,0,0,0.8);
+  display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .modal-content {
   position: relative;
   background-color: #000;
@@ -121,17 +119,15 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .modal-content video {
   max-width: 100%;
   max-height: 80vh;
 }
-
 .close-button {
   position: absolute;
   top: 5px;
   right: 15px;
-  color: white;
+  color: #fff;
   font-size: 2rem;
   font-weight: bold;
   cursor: pointer;
