@@ -23,13 +23,6 @@
       box-sizing: border-box;
     }
 
-    .carousel-container {
-      position: relative;
-      width: 1280px; /* Ensure enough width for 4 videos */
-      overflow: hidden;
-      background: #fff;
-      box-sizing: border-box;
-    }
 
     .carousel-track {
       display: flex;
@@ -60,27 +53,6 @@
     .carousel-section h4 {
       margin-left: 10px; /* aligns it with the first video item */
     }
-
-
-      .carousel-button {
-      background: transparent; /* No background */
-      border: none; /* Remove border */
-      color: #333; /* Dark color for chevrons */
-      font-size: 2rem; /* Larger chevrons */
-      cursor: pointer;
-      margin: 0 10px;
-      transition: color 0.3s, transform 0.3s;
-    }
-    
-    .carousel-button:hover {
-      color: #000; /* Darker color on hover */
-      transform: scale(1.2); /* Slight scale effect on hover */
-    }
-    
-    .carousel-button:active {
-      transform: scale(1); /* Reset to original size when clicked */
-    }
-
 
 
 
@@ -153,12 +125,54 @@
       font-weight: bold;
       cursor: pointer;
     }
+
+    
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background-color: rgba(255, 255, 255, 0.6);
+      border: none;
+      color: #333;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .carousel-button:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+      transform: translateY(-50%) scale(1.2);
+    }
+    
+    .carousel-button:active {
+      transform: translateY(-50%) scale(1);
+    }
+    
+    .carousel-button.prev {
+      left: 0;
+    }
+    
+    .carousel-button.next {
+      right: 0;
+    }
+    
+    .carousel-container {
+      position: relative;
+      width: 1280px;
+      overflow: hidden;
+      background: #fff;
+      box-sizing: border-box;
+    }
+
   </style>
 </head>
 <body>
 
   <div class="carousel-section">
-    <h4>Eurovision Winners c</h4>
+    <h4>Eurovision Winners d</h4>
 
     <div class="carousel-wrapper">
       <button class="carousel-button" onclick="scrollCarousel('carouselTrackWinners', -1)">&#10094;</button>
