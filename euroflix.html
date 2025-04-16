@@ -4,7 +4,6 @@
    <meta charset="UTF-8">
    <title>ESCFlix</title>
    <style>
- 
      body {
        font-family: Arial, sans-serif;
        margin: 0;
@@ -13,55 +12,6 @@
        text-align: center;
      }
  
- 
-     .carousel-wrapper {
-       display: flex;
-       align-items: center;
-       justify-content: center;
-       margin: 0 auto;
-       width: 100%;
-       box-sizing: border-box;
-     }
-
-
-
-.carousel-container {
-  position: relative;
-  width: 1240px; /* 4 x 300px + 3 x 10px gap = 1240px */
-  overflow: hidden;
-  border: none;
-  background: #fff;
-  box-sizing: border-box; /* safer */
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease;
-  gap: 10px; /* space between video items */
-}
-
-.video-item {
-  flex: 0 0 auto;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  cursor: pointer;
-}
- 
-     
- 
-     .video-item video {
-       width: 100%;
-       display: block;
-       border-radius: 8px;
-     }
- 
-     
      .carousel-section {
        width: 90%;
        max-width: 1200px;
@@ -77,7 +27,6 @@
        display: flex;
        align-items: center;
        justify-content: center;
-       margin: 0 auto;
      }
  
        .carousel-button {
@@ -101,11 +50,12 @@
  
      .carousel-container {
        position: relative;
-       width: 1280px; /* Enough for 4 video items */
+       width: 90%;
+       max-width: 1200px;
        overflow: hidden;
        border: 1px solid #ccc;
        background: #fff;
- }
+     }
  
      .carousel-track {
        display: flex;
@@ -208,13 +158,13 @@
  <body>
  
    <div class="carousel-section">
-     <h4>Eurovision Winners v0.5</h4>
+     <h4>Eurovision Winners</h4>
  
      <div class="carousel-wrapper">
-       <button class="carousel-button" onclick="scrollCarousel('carouselTrackWinners', -1)">&#10094;</button>
- 
+       <button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>
  
        <div class="carousel-container">
+         <div class="carousel-track" id="carouselTrack">
          <div class="carousel-track" id="carouselTrackWinners">
  
            <!-- 2014 - Conchita Wurst -->
@@ -332,6 +282,8 @@
  
          </div>
        </div>
+ 
+       <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
        <button class="carousel-button" onclick="scrollCarousel('carouselTrackWinners', 1)">&#10095;</button>
      </div>
    </div>
@@ -343,11 +295,13 @@
      <h4>2024 Edition</h4>
  
      <div class="carousel-wrapper">
- 
+       <button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>
+       
        <button class="carousel-button" onclick="scrollCarousel('carouselTrack2024', -1)">&#10094;</button>
  
  
        <div class="carousel-container">
+         <div class="carousel-track" id="carouselTrack">
          <div class="carousel-track" id="carouselTrack2024">
  
            <!-- 2014 - Conchita Wurst -->
@@ -466,8 +420,10 @@
          </div>
        </div>
  
+       <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
+       
        <button class="carousel-button" onclick="scrollCarousel('carouselTrack2024', 1)">&#10095;</button>
- 
+       
      </div>
    </div>
  
@@ -483,21 +439,16 @@
    </div>
  
    <script>
+     function scrollCarousel(direction) {
+       const track = document.getElementById('carouselTrack');
+       const scrollAmount = 1200;
+     function scrollCarousel(trackId, direction) {
+       const track = document.getElementById(trackId);
+       const itemWidth = track.querySelector('.video-item')?.offsetWidth || 300;
+       const scrollAmount = itemWidth + 20; // includes margin
+       track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+     }
  
-  function scrollCarousel(trackId, direction) {
-    const track = document.getElementById(trackId);
-    const item = track.querySelector('.video-item');
-    if (!item) return;
-
-    const itemWidth = item.offsetWidth + 20; // includes margin
-    const scrollAmount = itemWidth * 4; // scroll by 4 videos
-
-    track.scrollBy({
-      left: direction * scrollAmount,
-      behavior: 'smooth'
-    });
-  }
-
  
      function openModalWithVideo(src) {
        const modal = document.getElementById("videoModal");
