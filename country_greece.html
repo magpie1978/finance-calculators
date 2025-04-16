@@ -1,103 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ESCFlix Placeholder Grid</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ESCFlix - Video Grid</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       background-color: #141414;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: Arial, sans-serif;
       color: white;
     }
 
-    .grid-container {
+    .video-grid {
       display: flex;
       flex-direction: column;
-      gap: 30px;
-      padding: 40px 60px;
+      gap: 40px;
+      padding: 40px;
     }
 
-    .row {
+    .video-row {
       display: flex;
       gap: 20px;
       justify-content: center;
     }
 
-    .video-placeholder {
-      width: 220px;
-      height: 130px;
-      background-color: #333;
-      border-radius: 10px;
+    .video-card {
+      background-color: #222;
+      width: 200px;
+      height: 160px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      color: #aaa;
-      font-size: 16px;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.2s;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
     }
 
-    .video-placeholder:hover {
-      transform: scale(1.05);
+    .video-thumbnail {
       background-color: #444;
+      width: 100%;
+      height: 120px;
+    }
+
+    .video-title {
+      padding: 10px 5px;
+      font-size: 14px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <div class="grid-container">
-    <!-- 7 Rows -->
-    <div class="row">
-      <div class="video-placeholder">Video 1</div>
-      <div class="video-placeholder">Video 2</div>
-      <div class="video-placeholder">Video 3</div>
-      <div class="video-placeholder">Video 4</div>
-      <div class="video-placeholder">Video 5</div>
+  <div class="video-grid">
+    <!-- Repeat for 7 rows -->
+    <div class="video-row">
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
     </div>
-    <div class="row">
-      <div class="video-placeholder">Video 6</div>
-      <div class="video-placeholder">Video 7</div>
-      <div class="video-placeholder">Video 8</div>
-      <div class="video-placeholder">Video 9</div>
-      <div class="video-placeholder">Video 10</div>
-    </div>
-    <div class="row">
-      <div class="video-placeholder">Video 11</div>
-      <div class="video-placeholder">Video 12</div>
-      <div class="video-placeholder">Video 13</div>
-      <div class="video-placeholder">Video 14</div>
-      <div class="video-placeholder">Video 15</div>
-    </div>
-    <div class="row">
-      <div class="video-placeholder">Video 16</div>
-      <div class="video-placeholder">Video 17</div>
-      <div class="video-placeholder">Video 18</div>
-      <div class="video-placeholder">Video 19</div>
-      <div class="video-placeholder">Video 20</div>
-    </div>
-    <div class="row">
-      <div class="video-placeholder">Video 21</div>
-      <div class="video-placeholder">Video 22</div>
-      <div class="video-placeholder">Video 23</div>
-      <div class="video-placeholder">Video 24</div>
-      <div class="video-placeholder">Video 25</div>
-    </div>
-    <div class="row">
-      <div class="video-placeholder">Video 26</div>
-      <div class="video-placeholder">Video 27</div>
-      <div class="video-placeholder">Video 28</div>
-      <div class="video-placeholder">Video 29</div>
-      <div class="video-placeholder">Video 30</div>
-    </div>
-    <div class="row">
-      <div class="video-placeholder">Video 31</div>
-      <div class="video-placeholder">Video 32</div>
-      <div class="video-placeholder">Video 33</div>
-      <div class="video-placeholder">Video 34</div>
-      <div class="video-placeholder">Video 35</div>
+<div class="video-row">
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+    </div><div class="video-row">
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+    </div><div class="video-row">
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+    </div><div class="video-row">
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumbnail"></div>
+        <div class="video-title">Video Title</div>
+      </div>
     </div>
   </div>
 </body>
