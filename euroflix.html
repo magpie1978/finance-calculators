@@ -24,11 +24,26 @@
      }
  
      .carousel-container {
-       position: relative;
-       width: 1280px; /* Ensure enough width for 4 videos */
-       overflow: hidden;
+      position: relative;
+      width: 100%;
+      max-width: 1280px;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background: #fff;
+     }
+
+     .video-item {
+       flex: 0 0 25%;
+       max-width: 25%;
+       margin: 10px 5px;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
        background: #fff;
-       box-sizing: border-box;
+       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+       border-radius: 8px;
+       overflow: hidden;
+       cursor: pointer;
      }
  
      .carousel-track {
@@ -37,11 +52,7 @@
        will-change: transform;
      }
  
-     .video-item {
-       flex: 0 0 25%; /* Take up exactly 1/4 of the container */
-       box-sizing: border-box;
-       padding: 10px;
-     }
+     
  
      .video-item video {
        width: 100%;
@@ -196,7 +207,7 @@
  <body>
  
    <div class="carousel-section">
-     <h4>Eurovision Winners test</h4>
+     <h4>Eurovision Winners v0.1</h4>
  
      <div class="carousel-wrapper">
        <button class="carousel-button" onclick="scrollCarousel('carouselTrackWinners', -1)">&#10094;</button>
@@ -471,13 +482,21 @@
    </div>
  
    <script>
-     function scrollCarousel(trackId, direction) {
-       const track = document.getElementById(trackId);
-       const itemWidth = track.querySelector('.video-item')?.offsetWidth || 300;
-       const scrollAmount = itemWidth + 20; // includes margin
-       track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-     }
  
+  function scrollCarousel(trackId, direction) {
+    const track = document.getElementById(trackId);
+    const item = track.querySelector('.video-item');
+    if (!item) return;
+
+    const itemWidth = item.offsetWidth + 20; // includes margin
+    const scrollAmount = itemWidth * 4; // scroll by 4 videos
+
+    track.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+
  
      function openModalWithVideo(src) {
        const modal = document.getElementById("videoModal");
