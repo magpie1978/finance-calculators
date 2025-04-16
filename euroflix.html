@@ -158,7 +158,7 @@
  <body>
  
    <div class="carousel-section">
-     <h4>Eurovision Winners v0.4</h4>
+     <h4>Eurovision Winners v0.5</h4>
  
      <div class="carousel-wrapper">
        <!--<button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>-->
@@ -437,11 +437,26 @@
    </div>
  
    <script>
-     function scrollCarousel(direction, carouselId) {
+     function DELETEscrollCarousel(direction, carouselId) {
        const track = document.getElementById('carouselTrack');
        const scrollAmount = 1380;  //changed from 1200
        track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
      }
+
+
+
+  function scrollCarousel(direction, trackId) {
+    const track = document.getElementById(trackId);
+    const scrollAmount = 1380; // Scroll by the width of one video item
+
+    // Scroll in the specified direction
+    if (direction === 1) {
+      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    } else {
+      track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    }
+  }
+
     
      function openModalWithVideo(src) {
        const modal = document.getElementById("videoModal");
