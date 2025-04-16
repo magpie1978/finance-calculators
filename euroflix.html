@@ -3,66 +3,168 @@
  <head>
    <meta charset="UTF-8">
    <title>ESCFlix</title>
-  <link rel="stylesheet" href="euroflix_css_netflix.css">
+   <style>
+     body {
+       font-family: Arial, sans-serif;
+       margin: 0;
+       padding: 40px 20px;
+       background: #f0f0f0;
+       text-align: center;
+     }
+ 
+     .carousel-section {
+       width: 90%;
+       max-width: 1200px;
+       margin: 0 auto;
+       text-align: left;
+     }
+ 
+     .carousel-section h4 {
+       margin-left: 10px; /* aligns it with the first video item */
+     }
+ 
+     .carousel-wrapper {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+     }
+ 
+       .carousel-button {
+       background: transparent; /* No background */
+       border: none; /* Remove border */
+       color: #333; /* Dark color for chevrons */
+       font-size: 2rem; /* Larger chevrons */
+       cursor: pointer;
+       margin: 0 10px;
+       transition: color 0.3s, transform 0.3s;
+     }
+ 
+     .carousel-button:hover {
+       color: #000; /* Darker color on hover */
+       transform: scale(1.2); /* Slight scale effect on hover */
+     }
+ 
+     .carousel-button:active {
+       transform: scale(1); /* Reset to original size when clicked */
+     }
+ 
+     .carousel-container {
+       position: relative;
+       width: 90%;
+       max-width: 1200px;
+       overflow: hidden;
+       border: 1px solid #ccc;
+       background: #fff;
+     }
+ 
+     .carousel-track {
+       display: flex;
+       transition: transform 0.3s ease;
+       scroll-behavior: smooth;
+       overflow-x: auto;
+       -webkit-overflow-scrolling: touch;
+       scrollbar-width: none;
+     }
+ 
+     .carousel-track::-webkit-scrollbar {
+       display: none;
+     }
+ 
+     .video-item {
+       flex: 0 0 auto;
+       width: 300px;
+       margin: 10px;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       background: #fff;
+       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+       border-radius: 8px;
+       overflow: hidden;
+       cursor: pointer;
+     }
+ 
+     .preview-container {
+       width: 100%;
+       height: 170px; /* Fixed height for both video & image */
+       position: relative;
+     }
+ 
+     .preview-container img,
+     .preview-container video {
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+       display: block;
+       position: absolute;
+       top: 0;
+       left: 0;
+     }
+ 
+     .preview-container video {
+       display: none;
+     }
+ 
+     .video-title {
+       color: #333;
+       background: #fff;
+       padding: 10px 8px;
+       font-size: 0.95rem;
+       text-align: center;
+       width: 100%;
+     }
+ 
+     .modal {
+       display: none;
+       position: fixed;
+       z-index: 9999;
+       left: 0;
+       top: 0;
+       width: 100vw;
+       height: 100vh;
+       overflow: auto;
+       background-color: rgba(0,0,0,0.8);
+       justify-content: center;
+       align-items: center;
+     }
+ 
+     .modal-content {
+       position: relative;
+       background-color: #000;
+       padding: 20px;
+       max-width: 90%;
+       max-height: 90%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+     }
+ 
+     .modal-content video {
+       max-width: 100%;
+       max-height: 80vh;
+     }
+ 
+     .close-button {
+       position: absolute;
+       top: 5px;
+       right: 15px;
+       color: white;
+       font-size: 2rem;
+       font-weight: bold;
+       cursor: pointer;
+     }
+   </style>
  </head>
  <body>
-
-<!-- NEW HEADER CODE -->
-<header>
-  <div class="logo-placeholder">
-    <!-- Placeholder for logo -->
-    <img src="logo-placeholder.png" alt="ESCFlix Logo" />
-  </div>
-  <nav class="main-nav">
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li class="dropdown">
-        <a href="#">Editions</a>
-        <div class="dropdown-content">
-          <a href="#">2024</a>
-          <a href="#">2023</a>
-          <a href="#">2022</a>
-        </div>
-      </li>
-      <li class="dropdown">
-        <a href="#">Countries</a>
-        <div class="dropdown-content">
-          <a href="#">Albania</a>
-          <a href="#">Armenia</a>
-          <a href="#">Australia</a>
-        </div>
-      </li>
-      <li><a href="#">My List</a></li>
-    </ul>
-  </nav>
-  <div class="header-right">
-    <input type="text" placeholder="Search..." class="search-bar" />
-    <div class="settings">
-      <button>Settings</button>
-      <div class="settings-dropdown">
-        <a href="#">Profile</a>
-        <a href="#">Account</a>
-        <a href="#">Log Out</a>
-      </div>
-    </div>
-  </div>
-</header>
-<!-- END OF NEW HEADER -->
-
-
-
-<br><br><br>
-  
+ 
    <div class="carousel-section">
-     <h4>Eurovision Winners v0.7</h4>
+     <h4>Eurovision Winners v0.1</h4>
  
      <div class="carousel-wrapper">
-       <!--<button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>-->
-       <button class="carousel-button" onclick="scrollCarousel(-1, 'carouselTrack1')">&#10094;</button>
-
+       <button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>
+ 
        <div class="carousel-container">
-         <div class="carousel-track" id="carouselTrack1"> 
-         <!--<div class="carousel-track" id="carouselTrack">-->
+         <div class="carousel-track" id="carouselTrack">
  
            <!-- 2014 - Conchita Wurst -->
            <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
@@ -180,8 +282,7 @@
          </div>
        </div>
  
-       <!--<button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>-->
-       <button class="carousel-button" onclick="scrollCarousel(1, 'carouselTrack1')">&#10095;</button>
+       <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
      </div>
    </div>
  
@@ -192,13 +293,10 @@
      <h4>2024 Edition</h4>
  
      <div class="carousel-wrapper">
-       <!--<button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>-->
-       <button class="carousel-button" onclick="scrollCarousel(-1, 'carouselTrack2')">&#10094;</button>
+       <button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>
        
        <div class="carousel-container">
-         <!--<div class="carousel-track" id="carouselTrack">-->
-         <div class="carousel-track" id="carouselTrack2">
-          
+         <div class="carousel-track" id="carouselTrack">
            
            <!-- 2014 - Conchita Wurst -->
            <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
@@ -315,9 +413,8 @@
            
          </div>
        </div>
-
-       <button class="carousel-button" onclick="scrollCarousel(1, 'carouselTrack2')">&#10095;</button>
-       <!--<button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>-->
+ 
+       <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
      </div>
    </div>
  
@@ -333,27 +430,12 @@
    </div>
  
    <script>
-     function DELETEscrollCarousel(direction, carouselId) {
+     function scrollCarousel(direction) {
        const track = document.getElementById('carouselTrack');
-       const scrollAmount = 1380;  //changed from 1200
+       const scrollAmount = 1200;
        track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
      }
-
-
-
-  function scrollCarousel(direction, trackId) {
-    const track = document.getElementById(trackId);
-    const scrollAmount = 1380; // Scroll by the width of one video item
-
-    // Scroll in the specified direction
-    if (direction === 1) {
-      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    } else {
-      track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    }
-  }
-
-    
+ 
      function openModalWithVideo(src) {
        const modal = document.getElementById("videoModal");
        const container = document.getElementById("modalVideoContainer");
@@ -389,3 +471,5 @@
  
  </body>
  </html>
+
+
