@@ -1,10 +1,27 @@
+let currentIndex = 0;
+const videosPerView = 4;
 
-    function scrollCarousel(direction) {
-       const track = document.getElementById('carouselTrack');
-       const scrollAmount = 1200;
-       track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-     }
- 
+function scrollCarousel(direction) {
+  const track = document.getElementById('carouselTrack');
+  const items = track.querySelectorAll('.video-item');
+  const itemWidth = items[0].offsetWidth;
+  const totalItems = items.length;
+
+  const maxIndex = Math.ceil(totalItems / videosPerView) - 1;
+
+  currentIndex += direction;
+  if (currentIndex < 0) currentIndex = 0;
+  if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+  const scrollAmount = itemWidth * videosPerView * currentIndex;
+  track.style.transform = `translateX(-${scrollAmount}px)`;
+}
+
+
+
+
+
+
      function openModalWithVideo(src) {
        const modal = document.getElementById("videoModal");
        const container = document.getElementById("modalVideoContainer");
