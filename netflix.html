@@ -67,6 +67,17 @@ h4 {
 }
 
 .video-item {
+  flex: 0 0 calc(20% - 20px); /* 5 per view with spacing */
+  margin: 10px;
+  background: #1f1f1f;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+    
+.video-item876665565 {
   flex: 0 0 auto;
   width: 300px;
   margin: 10px;
@@ -155,7 +166,7 @@ h4 {
  <body>
  
    <div class="carousel-section">
-     <h4>Eurovision Winners v0.2</h4>
+     <h4>Eurovision Winners v0.3</h4>
  
      <div class="carousel-wrapper">
        <button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>
@@ -428,10 +439,21 @@ h4 {
  
    <script>
      function scrollCarousel(direction) {
-       const track = document.getElementById('carouselTrack');
-       const scrollAmount = 1200;
-       track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-     }
+  const carousels = document.querySelectorAll('.carousel-track');
+
+  carousels.forEach(track => {
+    const videoItem = track.querySelector('.video-item');
+    if (!videoItem) return;
+
+    const scrollAmount = videoItem.offsetWidth + 20; // includes margin
+    const scrollStep = scrollAmount * 5; // scroll 5 videos
+
+    track.scrollBy({
+      left: direction * scrollStep,
+      behavior: 'smooth'
+    });
+  });
+}
  
      function openModalWithVideo(src) {
        const modal = document.getElementById("videoModal");
@@ -464,6 +486,8 @@ h4 {
        video.style.display = 'none';
        img.style.display = 'block';
      }
+
+    
    </script>
  
  </body>
