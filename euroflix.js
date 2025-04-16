@@ -1,23 +1,30 @@
 let currentIndex = 0;
 const videosPerView = 4;
 
-function scrollCarousel(direction) {
-  const track = document.getElementById('carouselTrack');
+const carouselState = {};
+
+function scrollCarousel(carouselId, direction) {
+  const wrapper = document.getElementById(carouselId);
+  const track = wrapper.querySelector('.carousel-track');
   const items = track.querySelectorAll('.video-item');
   const itemWidth = items[0].offsetWidth;
-  const totalItems = items.length;
+  const videosPerView = 4;
 
+  const totalItems = items.length;
   const maxIndex = Math.ceil(totalItems / videosPerView) - 1;
 
-  currentIndex += direction;
-  if (currentIndex < 0) currentIndex = 0;
-  if (currentIndex > maxIndex) currentIndex = maxIndex;
+  // Track scroll state per carousel
+  if (!carouselState[carouselId]) {
+    carouselState[carouselId] = 0;
+  }
 
-  const scrollAmount = itemWidth * videosPerView * currentIndex;
+  carouselState[carouselId] += direction;
+  if (carouselState[carouselId] < 0) carouselState[carouselId] = 0;
+  if (carouselState[carouselId] > maxIndex) carouselState[carouselId] = maxIndex;
+
+  const scrollAmount = itemWidth * videosPerView * carouselState[carouselId];
   track.style.transform = `translateX(-${scrollAmount}px)`;
 }
-
-
 
 
 
