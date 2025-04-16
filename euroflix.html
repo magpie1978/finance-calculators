@@ -22,29 +22,41 @@
        width: 100%;
        box-sizing: border-box;
      }
- 
-     .carousel-container {
-      position: relative;
-      width: 100%;
-      max-width: 1320px;
-      overflow: hidden;
-      border: 1px solid #ccc;
-      background: #fff;
-     }
 
-     .video-item {
-       flex: 0 0 25%;
-       max-width: 25%;
-       margin: 10px 5px;
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       background: #fff;
-       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-       border-radius: 8px;
-       overflow: hidden;
-       cursor: pointer;
-     }
+
+
+.carousel-container {
+  position: relative;
+  width: 1320px; /* 4 full video cards, assuming each is 320px including margin */
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.video-item {
+  flex: 0 0 25%;
+  max-width: 25%;
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+    
+ 
  
      .carousel-track {
        display: flex;
@@ -207,7 +219,7 @@
  <body>
  
    <div class="carousel-section">
-     <h4>Eurovision Winners v0.2</h4>
+     <h4>Eurovision Winners v0.3</h4>
  
      <div class="carousel-wrapper">
        <button class="carousel-button" onclick="scrollCarousel('carouselTrackWinners', -1)">&#10094;</button>
