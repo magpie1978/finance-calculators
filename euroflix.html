@@ -164,7 +164,7 @@
       <button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>
       
       <div class="carousel-container">
-        <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-track" id="carouselTrackWinners">
           
           <!-- 2014 - Conchita Wurst -->
           <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
@@ -281,8 +281,7 @@
           
         </div>
       </div>
-
-      <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
+      <button class="carousel-button" onclick="scrollCarousel('carouselTrackWinners', 1)">&#10095;</button>
     </div>
   </div>
 
@@ -293,10 +292,12 @@
     <h4>2024 Edition</h4>
 
     <div class="carousel-wrapper">
-      <button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>
+      
+      <button class="carousel-button" onclick="scrollCarousel('carouselTrack2024', -1)">&#10094;</button>
+
       
       <div class="carousel-container">
-        <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-track" id="carouselTrack2024">
           
           <!-- 2014 - Conchita Wurst -->
           <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
@@ -413,8 +414,9 @@
           
         </div>
       </div>
-
-      <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
+      
+      <button class="carousel-button" onclick="scrollCarousel('carouselTrack2024', 1)">&#10095;</button>
+      
     </div>
   </div>
 
@@ -430,11 +432,13 @@
   </div>
 
   <script>
-    function scrollCarousel(direction) {
-      const track = document.getElementById('carouselTrack');
-      const scrollAmount = 1200;
+    function scrollCarousel(trackId, direction) {
+      const track = document.getElementById(trackId);
+      const itemWidth = track.querySelector('.video-item')?.offsetWidth || 300;
+      const scrollAmount = itemWidth + 20; // includes margin
       track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
     }
+
 
     function openModalWithVideo(src) {
       const modal = document.getElementById("videoModal");
