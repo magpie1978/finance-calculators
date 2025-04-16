@@ -12,11 +12,11 @@
    <div class="carousel-section">
      <h4>Eurovision Winners v0.2</h4>
  
-     <div class="carousel-wrapper">
-       <button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>
+     <div class="carousel-wrapper" id="carousel1">
+       <button class="carousel-button" onclick="scrollCarousel('carousel1',-1)">&#10094;</button>
  
        <div class="carousel-container">
-         <div class="carousel-track" id="carouselTrack">
+         <div class="carousel-track" id="carouselTrack1">
  
            <!-- 2014 - Conchita Wurst -->
            <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014/videos/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
@@ -134,21 +134,21 @@
          </div>
        </div>
  
-       <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
+       <button class="carousel-button" onclick="scrollCarousel('carousel1',1)">&#10095;</button>
      </div>
    </div>
  
  
  
  
-   <div class="carousel-section">
+   <div class="carousel-section" id='carousel2'>
      <h4>2024 Edition</h4>
  
      <div class="carousel-wrapper">
-       <button class="carousel-button" onclick="scrollCarousel(-1)">&#10094;</button>
+       <button class="carousel-button" onclick="scrollCarousel('carousel1',-1)">&#10094;</button>
        
        <div class="carousel-container">
-         <div class="carousel-track" id="carouselTrack">
+         <div class="carousel-track" id="carouselTrack2">
            
            <!-- 2014 - Conchita Wurst -->
            <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
@@ -266,7 +266,7 @@
          </div>
        </div>
  
-       <button class="carousel-button" onclick="scrollCarousel(1)">&#10095;</button>
+       <button class="carousel-button" onclick="scrollCarousel('carousel2',1)">&#10095;</button>
      </div>
    </div>
  
