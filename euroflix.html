@@ -13,6 +13,43 @@
       text-align: center;
     }
 
+
+    .carousel-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 1280px; /* Ensure enough width for 4 videos */
+      overflow: hidden;
+      background: #fff;
+      box-sizing: border-box;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      will-change: transform;
+    }
+
+    .video-item {
+      flex: 0 0 25%; /* Take up exactly 1/4 of the container */
+      box-sizing: border-box;
+      padding: 10px;
+    }
+
+    .video-item video {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+    }
+
+    
     .carousel-section {
       width: 90%;
       max-width: 1200px;
@@ -24,12 +61,6 @@
       margin-left: 10px; /* aligns it with the first video item */
     }
 
-    .carousel-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto;
-    }
 
       .carousel-button {
       background: transparent; /* No background */
@@ -50,40 +81,8 @@
       transform: scale(1); /* Reset to original size when clicked */
     }
 
-    .carousel-container {
-      position: relative;
-      width: 1280px; /* Enough for 4 video items */
-      overflow: hidden;
-      border: 1px solid #ccc;
-      background: #fff;
-}
 
-    .carousel-track {
-      display: flex;
-      transition: transform 0.3s ease;
-      scroll-behavior: smooth;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
 
-    .carousel-track::-webkit-scrollbar {
-      display: none;
-    }
-
-    .video-item {
-      flex: 0 0 auto;
-      width: 300px;
-      margin: 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      overflow: hidden;
-      cursor: pointer;
-    }
 
     .preview-container {
       width: 100%;
@@ -159,7 +158,7 @@
 <body>
 
   <div class="carousel-section">
-    <h4>Eurovision Winners test</h4>
+    <h4>Eurovision Winners b</h4>
 
     <div class="carousel-wrapper">
       <button class="carousel-button" onclick="scrollCarousel('carouselTrackWinners', -1)">&#10094;</button>
