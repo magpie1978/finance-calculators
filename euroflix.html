@@ -158,7 +158,7 @@
 <body>
 
   <div class="carousel-section">
-    <h4>Eurovision Winners b</h4>
+    <h4>Eurovision Winners c</h4>
 
     <div class="carousel-wrapper">
       <button class="carousel-button" onclick="scrollCarousel('carouselTrackWinners', -1)">&#10094;</button>
@@ -433,12 +433,36 @@
   </div>
 
   <script>
+
     function scrollCarousel(trackId, direction) {
       const track = document.getElementById(trackId);
-      const itemWidth = track.querySelector('.video-item')?.offsetWidth || 300;
-      const scrollAmount = itemWidth + 20; // includes margin
-      track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+      const itemWidth = track.querySelector('.video-item').offsetWidth;
+      const scrollAmount = itemWidth * 4; // scroll by 4 items
+  
+      // current transform (if any)
+      const style = window.getComputedStyle(track);
+      const matrix = new WebKitCSSMatrix(style.transform);
+      const currentTranslateX = matrix.m41;
+  
+      // calculate new position
+      const newTranslateX = currentTranslateX - direction * scrollAmount;
+  
+      // limit scrolling so it doesn’t go too far
+      const maxTranslateX = -(track.scrollWidth - track.parentElement.offsetWidth);
+      const clampedTranslateX = Math.max(Math.min(newTranslateX, 0), maxTranslateX);
+  
+      // apply transform
+      track.style.transform = `translateX(${clampedTranslateX}px)`;
     }
+   
+    
+    
+    //function scrollCarousel(trackId, direction) {
+    //  const track = document.getElementById(trackId);
+    //  const itemWidth = track.querySelector('.video-item')?.offsetWidth || 300;
+    //  const scrollAmount = itemWidth + 20; // includes margin
+    //  track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    //}
 
 
     function openModalWithVideo(src) {
