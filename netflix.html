@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESCFlix - Netflix Style Page</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #141414;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    h2 {
+      margin-left: 20px;
+    }
+    .carousel-container {
+      overflow: hidden;
+      margin: 20px 0;
+    }
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .video-card {
+      flex: 0 0 20%; /* 100% / 5 videos */
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .video-card video {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .controls {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .controls button {
+      background: #e50914;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      margin: 0 5px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      display: none;
+      z-index: 1000;
+    }
+    .modal video {
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+    .modal.active {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <h2>Featured Eurovision Videos</h2>
+  <div class="controls">
+    <button onclick="scrollCarousel('carousel1', -1)">&laquo; Prev</button>
+    <button onclick="scrollCarousel('carousel1', 1)">Next &raquo;</button>
+  </div>
+  <div class="carousel-container">
+    <div class="carousel" id="carousel1">
+      <!-- Videos will be injected here -->
+    </div>
+  </div>
+
+  <h2>Fan Favorites</h2>
+  <div class="controls">
+    <button onclick="scrollCarousel('carousel2', -1)">&laquo; Prev</button>
+    <button onclick="scrollCarousel('carousel2', 1)">Next &raquo;</button>
+  </div>
+  <div class="carousel-container">
+    <div class="carousel" id="carousel2">
+      <!-- Videos will be injected here -->
+    </div>
+  </div>
+
+  <div class="modal" id="videoModal" onclick="closeModal()">
+    <video id="modalVideo" controls autoplay></video>
+  </div>
+
+  <script>
+    const s3Videos = [
+      "https://your-s3-bucket.s3.amazonaws.com/video1.mp4",
+      "https://your-s3-bucket.s3.amazonaws.com/video2.mp4",
+      "https://your-s3-bucket.s3.amazonaws.com/video3.mp4",
+      "https://your-s3-bucket.s3.amazonaws.com/video4.mp4",
+      "https://your-s3-bucket.s3.amazonaws.com/video5.mp4",
+      "https://your-s3-bucket.s3.amazonaws.com/video6.mp4",
+      "https://your-s3-bucket.s3.amazonaws.com/video7.mp4",
+      "https://your-s3-bucket.s3.amazonaws.com/video8.mp4",
+      "https://your-s3-bucket.s3.amazonaws.com/video9.mp4",
+      "https://your-s3-bucket.s3.amazonaws.com/video10.mp4"
+    ];
+
+    function createCarousel(id, videos) {
+      const container = document.getElementById(id);
+      videos.forEach(url => {
+        const div = document.createElement('div');
+        div.className = 'video-card';
+        const video = document.createElement('video');
+        video.src = url;
+        video.setAttribute('muted', true);
+        video.setAttribute('playsinline', true);
+        video.addEventListener('click', () => openModal(url));
+        div.appendChild(video);
+        container.appendChild(div);
+      });
+    }
+
+    function scrollCarousel(id, direction) {
+      const carousel = document.getElementById(id);
+      const scrollAmount = carousel.clientWidth; // ensures exactly 5 videos shift
+      carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
+
+    function openModal(url) {
+      const modal = document.getElementById('videoModal');
+      const modalVideo = document.getElementById('modalVideo');
+      modalVideo.src = url;
+      modal.classList.add('active');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('videoModal');
+      const modalVideo = document.getElementById('modalVideo');
+      modal.classList.remove('active');
+      modalVideo.pause();
+      modalVideo.src = '';
+    }
+
+    // Initialize carousels with first 10 videos split
+    createCarousel('carousel1', s3Videos.slice(0, 10));
+    createCarousel('carousel2', s3Videos.slice(0, 10));
+  </script>
+</body>
+</html>
