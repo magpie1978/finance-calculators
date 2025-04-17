@@ -1,72 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ESCFlix</title>
-  <link rel="stylesheet" type="text/css" href="euroflix_css.css">
-  <script type="text/javascript" src="euroflix.js"></script>
   <style>
-    .grid-section {
-      padding: 20px;
+    body {
+      background-color: #141414;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 1rem;
+      font-size: 2rem;
+    }
+
+    .video-section {
+      padding: 1rem 2rem;
     }
 
     .video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .video-item {
-      cursor: pointer;
+      gap: 1rem;
     }
 
     .preview-container {
       position: relative;
       width: 100%;
+      padding-top: 56.25%; /* 16:9 aspect ratio */
       overflow: hidden;
+      border-radius: 10px;
+      cursor: pointer;
     }
 
     .preview-container img,
     .preview-container video {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 10px;
-    }
-
-    .preview-container video {
       position: absolute;
       top: 0;
       left: 0;
-      display: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
     }
 
-    .video-title {
-      margin-top: 8px;
-      text-align: center;
-      color: white;
+    .preview-container img {
+      z-index: 1;
+    }
+
+    .preview-container video {
+      z-index: 2;
+      display: none;
     }
   </style>
 </head>
 <body>
+  <h1>ESCFlix</h1>
 
-  <div class="grid-section">
-    <h4>Eurovision Winners</h4>
+  <div class="video-section">
+    <h2>Eurovision Highlights</h2>
     <div class="video-grid">
-      <!-- Paste all your video-item blocks here, e.g.: -->
-
-      <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014/videos/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4')">
-        <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
-          <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2014/thumbs/2014-austria.jpeg" alt="Austria 2014 - Conchita Wurst">
-          <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014/videos/2014+-+Austria+-+Conchita+Wurst+-+Rise+Like+a+Phoenix.mp4" muted loop></video>
-        </div>
-        <div class="video-title">Conchita Wurst <br> Rise Like A Phoenix <br> 2014</div>
+      <!-- Video 1 -->
+      <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+        <img src="https://via.placeholder.com/400x225?text=Thumbnail+1" alt="Thumbnail 1" />
+        <video src="https://your-s3-bucket-url/video1.mp4" muted loop></video>
       </div>
 
-      <!-- Add the rest of your video items here... -->
+      <!-- Video 2 -->
+      <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+        <img src="https://via.placeholder.com/400x225?text=Thumbnail+2" alt="Thumbnail 2" />
+        <video src="https://your-s3-bucket-url/video2.mp4" muted loop></video>
+      </div>
 
+      <!-- Video 3 -->
+      <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+        <img src="https://via.placeholder.com/400x225?text=Thumbnail+3" alt="Thumbnail 3" />
+        <video src="https://your-s3-bucket-url/video3.mp4" muted loop></video>
+      </div>
+
+      <!-- Add more video blocks as needed -->
     </div>
   </div>
 
+  <script>
+    function showPreview(container) {
+      const video = container.querySelector('video');
+      if (video) {
+        video.style.display = 'block';
+        video.play();
+      }
+    }
+
+    function hidePreview(container) {
+      const video = container.querySelector('video');
+      if (video) {
+        video.pause();
+        video.currentTime = 0;
+        video.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
