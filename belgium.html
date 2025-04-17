@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ESCFlix v0.1</title>
+  <title>ESCFlix</title>
   <style>
     body {
       background-color: #141414;
@@ -32,7 +32,7 @@
     .preview-container {
       position: relative;
       width: 100%;
-      padding-top: 56.25%; /* 16:9 aspect ratio */
+      padding-top: 56.25%;
       overflow: hidden;
       border-radius: 10px;
       cursor: pointer;
@@ -57,6 +57,62 @@
       z-index: 2;
       display: none;
     }
+
+    .video-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      z-index: 3;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .preview-container:hover .video-info {
+      opacity: 1;
+    }
+
+    .video-title {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .video-description {
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+      color: #ccc;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal video {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -66,25 +122,50 @@
     <h2>Eurovision Highlights</h2>
     <div class="video-grid">
       <!-- Video 1 -->
-      <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+      <div class="preview-container"
+           onmouseover="showPreview(this)"
+           onmouseout="hidePreview(this)"
+           onclick="openModal('https://euroflix.s3.eu-north-1.amazonaws.com/2015/videos/2015+-+Sweden+-+Mans+Zelmerlow+-+Heroes.mp4')">
         <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2015/thumbs/2015-sweden.jpeg" alt="Thumbnail 1" />
         <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2015/videos/2015+-+Sweden+-+Mans+Zelmerlow+-+Heroes.mp4" muted loop></video>
+        <div class="video-info">
+          <div class="video-title">Sweden 2023</div>
+          <div class="video-description">Loreen brings power and elegance to the stage.</div>
+        </div>
       </div>
 
       <!-- Video 2 -->
-      <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+      <div class="preview-container"
+           onmouseover="showPreview(this)"
+           onmouseout="hidePreview(this)"
+           onclick="openModal('https://euroflix.s3.eu-north-1.amazonaws.com/2015/videos/2015+-+Sweden+-+Mans+Zelmerlow+-+Heroes.mp4')">
         <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2015/thumbs/2015-sweden.jpeg" alt="Thumbnail 2" />
         <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2015/videos/2015+-+Sweden+-+Mans+Zelmerlow+-+Heroes.mp4" muted loop></video>
+        <div class="video-info">
+          <div class="video-title">Finland 2023</div>
+          <div class="video-description">Käärijä shakes up the crowd with "Cha Cha Cha".</div>
+        </div>
       </div>
 
       <!-- Video 3 -->
-      <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+      <div class="preview-container"
+           onmouseover="showPreview(this)"
+           onmouseout="hidePreview(this)"
+           onclick="openModal('https://euroflix.s3.eu-north-1.amazonaws.com/2015/videos/2015+-+Sweden+-+Mans+Zelmerlow+-+Heroes.mp4')">
         <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2015/thumbs/2015-sweden.jpeg" alt="Thumbnail 3" />
         <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2015/videos/2015+-+Sweden+-+Mans+Zelmerlow+-+Heroes.mp4" muted loop></video>
+        <div class="video-info">
+          <div class="video-title">Italy 2023</div>
+          <div class="video-description">Marco Mengoni's soulful ballad stirs emotions.</div>
+        </div>
       </div>
-
-      <!-- Add more video blocks as needed -->
     </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="videoModal" class="modal" onclick="closeModal(event)">
+    <span class="modal-close" onclick="closeModal(event)">&times;</span>
+    <video id="modalVideo" controls autoplay></video>
   </div>
 
   <script>
@@ -102,6 +183,25 @@
         video.pause();
         video.currentTime = 0;
         video.style.display = 'none';
+      }
+    }
+
+    function openModal(videoSrc) {
+      const modal = document.getElementById('videoModal');
+      const modalVideo = document.getElementById('modalVideo');
+      modalVideo.src = videoSrc;
+      modal.style.display = 'flex';
+      modalVideo.play();
+    }
+
+    function closeModal(event) {
+      if (event.target.id === 'videoModal' || event.target.classList.contains('modal-close')) {
+        const modal = document.getElementById('videoModal');
+        const modalVideo = document.getElementById('modalVideo');
+        modalVideo.pause();
+        modalVideo.currentTime = 0;
+        modalVideo.src = '';
+        modal.style.display = 'none';
       }
     }
   </script>
