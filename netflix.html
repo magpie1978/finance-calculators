@@ -734,11 +734,16 @@ h4 {
        <div id="modalVideoContainer"></div>
      </div>
    </div>
--->
-            <!-- Modal -->
-<div id="videoModal" class="modal" onclick="closeModal(event)">
-  <span class="modal-close" onclick="closeModal(event)">&times;</span>
-  <video id="modalVideo" controls autoplay controlsList="nodownload"></video>
+  -->
+
+  <!-- Modal -->
+<div id="videoModal" class="modal" onclick="closeModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close-button" onclick="closeModal()">&times;</span>
+    <div id="modalVideoContainer">
+      <video id="modalVideo" controls autoplay controlsList="nodownload" oncontextmenu="return false;" style="width: 100%; height: auto;"></video>
+    </div>
+  </div>
 </div>
 
  
