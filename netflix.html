@@ -159,7 +159,7 @@ h4 {
  <body>
  
    <div class="carousel-section">
-     <h4>Eurovision Winners v0.7</h4>
+     <h4>Eurovision Winners v0.8</h4>
  
      <div class="carousel-wrapper">
        <button class="carousel-button" onclick="scrollCarousel(-1,'carouselTrack1')">&#10094;</button>
@@ -774,10 +774,29 @@ h4 {
     ></video>
   </div>
 </div>
+
+
+  
  
    <script>
 
-function openModal(videoSrc) {
+
+
+    function openModalWithVideo(videoUrl) {
+  const modalContent = `
+    <video controls autoplay oncontextmenu="return false;" style="width: 100%; max-height: 80vh;">
+      <source src="${videoUrl}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  `;
+
+  // Insert into modal (adapt as needed for your site)
+  document.getElementById('video-modal-content').innerHTML = modalContent;
+  document.getElementById('video-modal').style.display = 'block';
+}
+
+    
+function REMOVEopenModal(videoSrc) {
   const modal = document.getElementById('videoModal');
   const video = document.getElementById('modalVideo');
 
