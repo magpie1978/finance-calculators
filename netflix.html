@@ -159,7 +159,7 @@ h4 {
  <body>
  
    <div class="carousel-section">
-     <h4>Eurovision Winners v0.6</h4>
+     <h4>Eurovision Winners v0.7</h4>
  
      <div class="carousel-wrapper">
        <button class="carousel-button" onclick="scrollCarousel(-1,'carouselTrack1')">&#10094;</button>
@@ -747,7 +747,7 @@ h4 {
 </div>
 -->
   
- <!-- Modal -->
+ <!-- Modal 
 <div id="videoModal" class="modal" onclick="closeModal()" oncontextmenu="return false;">
   <div class="modal-content" onclick="event.stopPropagation()">
     <span class="close-button" onclick="closeModal()">&times;</span>
@@ -758,6 +758,7 @@ h4 {
   -->
 
   <!-- S3 Modal -->
+
 <div id="videoModal" class="modal" onclick="closeModal()" oncontextmenu="return false;">
   <div class="modal-content" onclick="event.stopPropagation()" oncontextmenu="return false;">
     <span class="close-button" onclick="closeModal()">&times;</span>
@@ -776,6 +777,28 @@ h4 {
  
    <script>
 
+function openModal(videoSrc) {
+  const modal = document.getElementById('videoModal');
+  const video = document.getElementById('modalVideo');
+
+  video.src = videoSrc;
+  video.load();
+  video.play();
+  modal.style.display = 'block';
+}
+
+function closeModal() {
+  const modal = document.getElementById('videoModal');
+  const video = document.getElementById('modalVideo');
+
+  video.pause();
+  video.removeAttribute('src');
+  video.load();
+  modal.style.display = 'none';
+}
+
+
+    
       function scrollCarousel(direction, trackId) {
     const track = document.getElementById(trackId);
     const itemWidth = track.querySelector('.video-item').offsetWidth + 20; // includes margin
@@ -803,7 +826,7 @@ h4 {
   }
 
  
-     function closeModal() {
+     function REMOVEDcloseModal() {
        const modal = document.getElementById("videoModal");
        const container = document.getElementById("modalVideoContainer");
        modal.style.display = "none";
