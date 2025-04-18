@@ -159,7 +159,7 @@ h4 {
  <body>
  
    <div class="carousel-section">
-     <h4>Eurovision Winners v0.8</h4>
+     <h4>Eurovision Winners v0.9</h4>
  
      <div class="carousel-wrapper">
        <button class="carousel-button" onclick="scrollCarousel(-1,'carouselTrack1')">&#10094;</button>
@@ -727,76 +727,24 @@ h4 {
  
  
    
-   <!-- Modal 
+   <!-- Modal -->
    <div id="videoModal" class="modal" onclick="closeModal()">
      <div class="modal-content" onclick="event.stopPropagation()">
        <span class="close-button" onclick="closeModal()">&times;</span>
        <div id="modalVideoContainer"></div>
      </div>
    </div>
-  -->
-
-  <!-- Modal 
-<div id="videoModal" class="modal" onclick="closeModal()">
-  <div class="modal-content" onclick="event.stopPropagation()">
-    <span class="close-button" onclick="closeModal()">&times;</span>
-    <div id="modalVideoContainer">
-      <video id="modalVideo" controls autoplay controlsList="nodownload" oncontextmenu="return false;" style="width: 100%; height: auto;"></video>
-    </div>
-  </div>
-</div>
--->
   
- <!-- Modal 
-<div id="videoModal" class="modal" onclick="closeModal()" oncontextmenu="return false;">
-  <div class="modal-content" onclick="event.stopPropagation()">
-    <span class="close-button" onclick="closeModal()">&times;</span>
-    <video id="modalVideo" controls autoplay controlsList="nodownload"
-      oncontextmenu="return false;" style="width: 100%; height: auto;"></video>
-  </div>
-</div>
-  -->
-
-  <!-- S3 Modal -->
-
-<div id="videoModal" class="modal" onclick="closeModal()" oncontextmenu="return false;">
-  <div class="modal-content" onclick="event.stopPropagation()" oncontextmenu="return false;">
-    <span class="close-button" onclick="closeModal()">&times;</span>
-    <video
-      id="modalVideo"
-      controls
-      autoplay
-      controlsList="nodownload"
-      oncontextmenu="return false;"
-      style="width: 100%; height: auto;"
-      disablePictureInPicture
-      disableRemotePlayback
-    ></video>
-  </div>
-</div>
-
-
   
  
    <script>
 
 
 
-    function openModalWithVideo(videoUrl) {
-  const modalContent = `
-    <video controls autoplay oncontextmenu="return false;" style="width: 100%; max-height: 80vh;">
-      <source src="${videoUrl}" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  `;
 
-  // Insert into modal (adapt as needed for your site)
-  document.getElementById('video-modal-content').innerHTML = modalContent;
-  document.getElementById('video-modal').style.display = 'block';
-}
 
     
-function REMOVEopenModal(videoSrc) {
+function openModal(videoSrc) {
   const modal = document.getElementById('videoModal');
   const video = document.getElementById('modalVideo');
 
@@ -806,7 +754,7 @@ function REMOVEopenModal(videoSrc) {
   modal.style.display = 'block';
 }
 
-function closeModal() {
+function removedcloseModal() {
   const modal = document.getElementById('videoModal');
   const video = document.getElementById('modalVideo');
 
@@ -829,23 +777,10 @@ function closeModal() {
     });
   }
  
-  function openModalWithVideo(videoUrl) {
-    const modal = document.createElement('div');
-    modal.classList.add('modal');
-    modal.style.display = 'flex';
 
-    modal.innerHTML = `
-      <div class="modal-content">
-        <span class="close-button" onclick="document.body.removeChild(this.closest('.modal'))">&times;</span>
-        <video src="${videoUrl}" controls autoplay></video>
-      </div>
-    `;
-
-    document.body.appendChild(modal);
-  }
 
  
-     function REMOVEDcloseModal() {
+     function closeModal() {
        const modal = document.getElementById("videoModal");
        const container = document.getElementById("modalVideoContainer");
        modal.style.display = "none";
