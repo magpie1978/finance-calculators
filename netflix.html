@@ -159,7 +159,7 @@ h4 {
  <body>
  
    <div class="carousel-section">
-     <h4>Eurovision Winners v0.4</h4>
+     <h4>Eurovision Winners v0.5</h4>
  
      <div class="carousel-wrapper">
        <button class="carousel-button" onclick="scrollCarousel(-1,'carouselTrack1')">&#10094;</button>
@@ -736,13 +736,23 @@ h4 {
    </div>
   -->
 
-  <!-- Modal -->
+  <!-- Modal 
 <div id="videoModal" class="modal" onclick="closeModal()">
   <div class="modal-content" onclick="event.stopPropagation()">
     <span class="close-button" onclick="closeModal()">&times;</span>
     <div id="modalVideoContainer">
       <video id="modalVideo" controls autoplay controlsList="nodownload" oncontextmenu="return false;" style="width: 100%; height: auto;"></video>
     </div>
+  </div>
+</div>
+-->
+  
+ <!-- Modal -->
+<div id="videoModal" class="modal" onclick="closeModal()" oncontextmenu="return false;">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close-button" onclick="closeModal()">&times;</span>
+    <video id="modalVideo" controls autoplay controlsList="nodownload"
+      oncontextmenu="return false;" style="width: 100%; height: auto;"></video>
   </div>
 </div>
 
