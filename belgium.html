@@ -130,6 +130,48 @@
   display: flex;
   align-items: center;
   margin-bottom: 0.75rem;
+  text-decoration: none;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 6px;
+  cursor: pointer; /* 👈 makes it feel clickable */
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-row:hover {
+  background-color: #2a2a2a;
+}
+
+.sidebar-country {
+  font-size: 0.9rem;
+}
+
+    /// NEW
+.sidebar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  text-decoration: none;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 6px;
+  cursor: pointer; /* 👈 makes it feel clickable */
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-row:hover {
+  background-color: #2a2a2a;
+}
+
+.sidebar-country {
+  font-size: 0.9rem;
+}
+
+    ///END
+.OLDsidebar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
 }
 
 .sidebar-flag {
@@ -148,7 +190,7 @@
   object-fit: cover;
 }
 
-.sidebar-country {
+.OLDsidebar-country {
   color: white;
   font-size: 0.9rem;
   text-decoration: none;
@@ -258,12 +300,20 @@
     <a href="belarus.html" class="sidebar-country">Belarus</a>
   </div>
   <!-- BELGIUM -->
+  <a href="belgium.html" class="sidebar-row">
+  <div class="sidebar-flag">
+    <img src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/be.png" alt="Belgium" />
+  </div>
+  <div class="sidebar-country">Belgium</div>
+</a>
+  <!-- BELGIUM 
   <div class="sidebar-row">
     <a href="belgium.html" class="sidebar-flag">
       <img src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/be.png" alt="Belgium">
     </a>
     <a href="belgium.html" class="sidebar-country">Belgium</a>
   </div>
+  -->
   <!-- BOSNIA AND HERCEGOVINA -->
   <div class="sidebar-row">
     <a href="bosnia-hercegovina.html" class="sidebar-flag">
