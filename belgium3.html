@@ -93,31 +93,7 @@
       font-size: 16px;
     }
 
-    /* Scroll Buttons */
-    .scroll-buttons {
-      position: fixed;
-      top: 50%;
-      right: 10px;
-      display: flex;
-      flex-direction: column;
-      transform: translateY(-50%);
-    }
-
-    .scroll-left, .scroll-right {
-      background-color: #333;
-      color: white;
-      padding: 10px;
-      border: none;
-      border-radius: 50%;
-      margin: 10px 0;
-      cursor: pointer;
-      font-size: 20px;
-    }
-
-    .scroll-left:hover, .scroll-right:hover {
-      background-color: #444;
-    }
-  </style>
+    </style>
 </head>
 <body>
   <!-- Sidebar -->
@@ -156,38 +132,9 @@
     </div>
   </div>
 
-  <!-- Scroll Buttons -->
-  <div class="scroll-buttons">
-    <button class="scroll-left" onclick="scrollLeft()">◁</button>
-    <button class="scroll-right" onclick="scrollRight()">▷</button>
-  </div>
+ 
 
   <script>
-    // Function to scroll the grid to the left
-    function scrollLeft() {
-      const gridContainer = document.querySelector('.grid-container');
-      const currentTransform = getComputedStyle(gridContainer).transform;
-      
-      if (currentTransform === 'none') {
-        gridContainer.style.transform = 'translateX(-25%)';
-      } else {
-        const matrix = new WebKitCSSMatrix(currentTransform);
-        gridContainer.style.transform = `translateX(${matrix.m41 - 25}%)`;
-      }
-    }
-
-    // Function to scroll the grid to the right
-    function scrollRight() {
-      const gridContainer = document.querySelector('.grid-container');
-      const currentTransform = getComputedStyle(gridContainer).transform;
-      
-      if (currentTransform === 'none') {
-        gridContainer.style.transform = 'translateX(25%)';
-      } else {
-        const matrix = new WebKitCSSMatrix(currentTransform);
-        gridContainer.style.transform = `translateX(${matrix.m41 + 25}%)`;
-      }
-    }
   </script>
 </body>
 </html>
