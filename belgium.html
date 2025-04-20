@@ -508,157 +508,73 @@ h1 {
     Belgium
     </h1>
     
-    <div class="video-grid">
-      
-      <!-- 2024 -->
-      <div class="preview-container"
-           onmouseover="showPreview(this)"
-           onmouseout="hidePreview(this)"
-           onclick="openModal('https://euroflix.s3.eu-north-1.amazonaws.com/2024/videos/2024-BE.mp4')">
-        <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2024/thumbs/2024-BE.jpeg" alt="Belgium 2024" />
-        <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2024/videos/2024-BE.mp4" muted loop></video>
-          <div class="video-info">
-            <div class="video-title">Belgium 2024</div>
-            <div class="video-description">Mustii<br>Before The Party's Over</div>
-          </div>
-        </div>
-
-      <!-- 2023 -->
-      <div class="preview-container"
-           onmouseover="showPreview(this)"
-           onmouseout="hidePreview(this)"
-           onclick="openModal('https://euroflix.s3.eu-north-1.amazonaws.com/2023/videos/2023-BE.mp4')">
-        <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2023/thumbs/2023-BE.jpeg" alt="Belgium 2023" />
-        <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2023/videos/2023-BE.mp4" muted loop></video>
-        <div class="video-info">
-          <div class="video-title">Belgium 2023</div>
-          <div class="video-description">Gustaph<br>Because Of You</div>
-        </div>
+<div class="grid-section">
+      <div class="section-header">
+         <h4>Eurovision Winners</h4>
+         <a class="view-more" href="belgium.html">VIEW MORE</a>
       </div>
 
-      <!-- 2022 -->
-      <div class="preview-container"
-           onmouseover="showPreview(this)"
-           onmouseout="hidePreview(this)"
-           onclick="openModal('https://euroflix.s3.eu-north-1.amazonaws.com/2022/videos/2022-BE.mp4')">
-        <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2022/thumbs/2022-BE.jpeg" alt="TBelgium 2022" />
-        <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2022/videos/2022-BE.mp4" muted loop></video>
-        <div class="video-info">
-          <div class="video-title">Belgium 2022</div>
-          <div class="video-description">Jérémie Makiese<br>Miss You</div>
-        </div>
+      <div class="grid-container">
+         <!-- 2014 - AUSTRIA -->
+         <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014/videos/2014-AT.mp4')">
+            <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+               <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2014/thumbs/2014-AT.jpeg" alt="Austria 2014 - Conchita Wurst">
+               <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014/videos/2014-AT.mp4" muted loop></video>
+            </div>
+            <div class="video-title-with-icon" onclick="event.stopPropagation()">
+               <a href="belgium.html">
+                  <img class="icon-placeholder" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/at.png" alt="Flag">
+               </a>
+               <div class="video-title-text"><b>Conchita Wurst</b><br>Rise Like A Phoenix<br>2014</div>
+            </div>
+         </div>
+
+         <!-- 2015 - SWEDEN -->
+         <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2015/videos/2015-SE.mp4')">
+            <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+               <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2015/thumbs/2015-SE.jpeg" alt="Sweden 2015 - Måns Zelmerlöw">
+               <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2015/videos/2015-SE.mp4" muted loop></video>
+            </div>
+            <div class="video-title-with-icon" onclick="event.stopPropagation()">
+               <a href="belgium.html">
+                  <img class="icon-placeholder" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/se.png" alt="Flag">
+               </a>
+               <div class="video-title-text">Måns Zelmerlöw<br>Heroes<br>2015</div>
+            </div>
+         </div>
+
+         <!-- 2016 - UKRAINE -->
+         <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2016/videos/2016-UA.mp4')">
+            <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+               <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2016/thumbs/2016-UA.jpeg" alt="Ukraine 2016 - Jamala">
+               <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2016/videos/2016-UA.mp4" muted loop></video>
+            </div>
+            <div class="video-title-with-icon" onclick="event.stopPropagation()">
+               <a href="belgium.html">
+                  <img class="icon-placeholder" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/ua.png" alt="Flag">
+               </a>
+               <div class="video-title-text">Jamala<br>1944<br>2016</div>
+            </div>
+         </div>
+
+         <!-- 2017 - PORTUGAL -->
+         <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2017/videos/2017-PT.mp4')">
+            <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+               <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2017/thumbs/2017-PT.jpeg" alt="Portugal 2017 - Salvador Sobral">
+               <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2017/videos/2017-PT.mp4" muted loop></video>
+            </div>
+            <div class="video-title-with-icon" onclick="event.stopPropagation()">
+               <a href="belgium.html">
+                  <img class="icon-placeholder" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/pt.png" alt="Flag">
+               </a>
+               <div class="video-title-text">Salvador Sobral<br>Amar pelos dois<br>2017</div>
+            </div>
+         </div>
+
+         <!-- Add the rest of your videos here in the same format -->
+
       </div>
-
-    <!-- 2021 -->
-      <div class="preview-container"
-           onmouseover="showPreview(this)"
-           onmouseout="hidePreview(this)"
-           onclick="openModal('https://euroflix.s3.eu-north-1.amazonaws.com/2021/videos/2021-BE.mp4')">
-        <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2021/thumbs/2021-BE.jpeg" alt="Belgium 2021" />
-        <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2021/videos/2021-BE.mp4" muted loop></video>
-        <div class="video-info">
-          <div class="video-title">Belgium 2021</div>
-          <div class="video-description">Hooverphonic<br>The Wrong Place</div>
-        </div>
-      </div>
-
-
-      <!-- 2020 -->
-      <div class="preview-container"
-           onmouseover="showPreview(this)"
-           onmouseout="hidePreview(this)"
-           onclick="openModal('https://euroflix.s3.eu-north-1.amazonaws.com/2020/videos/2020-BE.mp4')">
-        <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2020/thumbs/2020-BE.jpeg" alt="Belgium 2020" />
-        <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2020/videos/2020-BE.mp4" muted loop></video>
-        <div class="video-info">
-          <div class="video-title">Belgium 2020</div>
-          <div class="video-description">Hooverphonic<br>Release Me</div>
-        </div>
-      </div>
-
-
-      <!-- 2019 -->
-      <div class="preview-container"
-           onmouseover="showPreview(this)"
-           onmouseout="hidePreview(this)"
-           onclick="openModal('https://euroflix.s3.eu-north-1.amazonaws.com/2019/videos/2019-BE.mp4')">
-        <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2019/thumbs/2019-BE.jpeg" alt="Belgium 2019" />
-        <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2019/videos/2019-BE.mp4" muted loop></video>
-        <div class="video-info">
-          <div class="video-title">Belgium 2019</div>
-          <div class="video-description">Eliot<br>Wake Up</div>
-        </div>
-      </div>
-
-      <!-- 2018 -->
-      <div class="preview-container"
-           onmouseover="showPreview(this)"
-           onmouseout="hidePreview(this)"
-           onclick="openModal('https://euroflix.s3.eu-north-1.amazonaws.com/2018/videos/2018-BE.mp4')">
-        <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2018/thumbs/2018-BE.jpeg" alt="Belgium 2018" />
-        <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2018/videos/2018-BE.mp4" muted loop></video>
-        <div class="video-info">
-          <div class="video-title">Belgium 2018</div>
-          <div class="video-description">Sennek<br>A Matter Of Time</div>
-        </div>
-      </div>
-
-      <!-- 2017 -->
-      <div class="preview-container"
-           onmouseover="showPreview(this)"
-           onmouseout="hidePreview(this)"
-           onclick="openModal('https://euroflix.s3.eu-north-1.amazonaws.com/2017/videos/2017-BE.mp4')">
-        <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2017/thumbs/2017-BE.jpeg" alt="Belgium 2017" />
-        <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2017/videos/2017-BE.mp4" muted loop></video>
-        <div class="video-info">
-          <div class="video-title">Belgium 2017</div>
-          <div class="video-description">Blanche<br>City Lights</div>
-        </div>
-      </div>
-
-      <!-- 2016 -->
-      <div class="preview-container"
-           onmouseover="showPreview(this)"
-           onmouseout="hidePreview(this)"
-           onclick="openModal('https://euroflix.s3.eu-north-1.amazonaws.com/2016/videos/2016-BE.mp4')">
-        <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2016/thumbs/2016-BE.jpeg" alt="Belgium 2016" />
-        <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2016/videos/2016-BE.mp4" muted loop></video>
-        <div class="video-info">
-          <div class="video-title">Belgium 2016</div>
-          <div class="video-description">Laura Tesoro<br>What's The Pressure</div>
-        </div>
-      </div>
-    
-      <!-- 2015 -->
-      <div class="preview-container"
-           onmouseover="showPreview(this)"
-           onmouseout="hidePreview(this)"
-           onclick="openModal('https://euroflix.s3.eu-north-1.amazonaws.com/2015/videos/2015-BE.mp4')">
-        <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2015/thumbs/2015-BE.jpeg" alt="Belgium 2015" />
-        <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2015/videos/2015-BE.mp4" muted loop></video>
-        <div class="video-info">
-          <div class="video-title">Belgium 2015</div>
-          <div class="video-description">Loic Nottet<br>Rhythm Inside</div>
-        </div>
-      </div>
-
-      <!-- 2014 -->
-      <div class="preview-container"
-           onmouseover="showPreview(this)"
-           onmouseout="hidePreview(this)"
-           onclick="openModal('https://euroflix.s3.eu-north-1.amazonaws.com/2014/videos/2014-BE.mp4')">
-        <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2014/thumbs/2014-BE.jpeg" alt="Belgium 2014" />
-        <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014/videos/2014-BE.mp4" muted loop></video>
-        <div class="video-info">
-          <div class="video-title">Belgium 2014</div>
-          <div class="video-description">Axel Hirsoux<br>Mother</div>
-        </div>
-      </div>
-
-
-
-      
-    </div>
+   </div>    </div>
   </div>
 
   <!-- Modal -->
