@@ -211,6 +211,22 @@
   text-decoration: none;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Adjust number of columns */
+  gap: 20px;
+}
+
+.video-item {
+  background-color: #333; /* Optional for visual separation */
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.video-item:hover {
+  transform: scale(1.05);
+}
         
  
    </style>
