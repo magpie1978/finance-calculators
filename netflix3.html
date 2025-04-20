@@ -180,7 +180,27 @@
     z-index: 9999;
     border-radius: 50%;
   }
-  }
+
+        .section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0 10px 10px 10px;
+}
+
+.section-header h4 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e5e5e5;
+}
+
+.section-header .view-more {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: #aaa;
+}
  
  
    </style>
@@ -189,7 +209,10 @@
  
  
      <div class="carousel-section">
-       <h4>Eurovision Winners</h4> <h6>VIEW MORE</h6>
+        <div class="section-header">
+          <h4>Eurovision Winners</h4>
+          <h6 class="view-more">VIEW MORE</h6>
+        </div>
  
        <div class="carousel-wrapper">
          <button class="carousel-button" onclick="scrollCarousel(-1,'carouselTrack1')">&#10094;</button>
