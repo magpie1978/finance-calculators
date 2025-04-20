@@ -199,8 +199,19 @@
   margin: 0;
   font-size: 0.9rem;
   font-weight: normal;
-  color: #e50914; /* Netflix Red */
-} 
+  color: #e50914;
+  text-decoration: none;
+}
+
+.section-header .view-more:visited,
+.section-header .view-more:hover,
+.section-header .view-more:active,
+.section-header .view-more:focus {
+  color: #e50914;
+  text-decoration: none;
+}
+
+        
  
    </style>
    </head>
@@ -209,9 +220,9 @@
  
      <div class="carousel-section">
         <div class="section-header">
-          <h4>Eurovision Winners</h4>
-          <h6 class="view-more"><a href="eurovisionwinners.html">VIEW MORE</a></h6>
-        </div>
+           <h4>Eurovision Winners</h4>
+           <a class="view-more" href="eurovision-winners.html">VIEW MORE</a>
+         </div>
  
        <div class="carousel-wrapper">
          <button class="carousel-button" onclick="scrollCarousel(-1,'carouselTrack1')">&#10094;</button>
