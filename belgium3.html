@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Douze Points | Belgium</title>
+
+<style>
+  body {
+    background-color: #141414;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    text-align: center;
+    padding: 1rem;
+    font-size: 2rem;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+  }
+
+  .video-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    max-height: 400px;
+  }
+
+  .preview-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .preview-container img,
+  .preview-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .video-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .preview-container:hover .video-info {
+    opacity: 1;
+  }
+
+  .video-title {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .video-description {
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    color: #ccc;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal video {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+  }
+
+  .sidebar {
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #1a1a1a;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+
+  .sidebar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding: 0.4rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .sidebar-row:hover {
+    background-color: #e50914;
+    color: black;
+  }
+
+  .sidebar-flag {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .sidebar-flag img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .main-content {
+    margin-left: 20%;
+    width: 80%;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <a href="belgium.html" class="sidebar-row">
+    <div class="sidebar-flag">
+      <img src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/be.png" alt="Belgium" />
+    </div>
+    <div class="sidebar-country">Belgium</div>
+  </a>
+</div>
+
+<div class="main-content">
+  <div class="grid-section">
+    <div class="section-header">
+      <h4>Eurovision Winners</h4>
+      <a class="view-more" href="belgium.html">VIEW MORE</a>
+    </div>
+
+    <div class="grid-container">
+      <!-- 2014 - AUSTRIA -->
+      <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014/videos/2014-AT.mp4')">
+        <div class="preview-container">
+          <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2014/thumbs/2014-AT.jpeg" alt="Austria 2014 - Conchita Wurst">
+          <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014/videos/2014-AT.mp4" muted loop></video>
+        </div>
+        <div class="video-title-text"><b>Conchita Wurst</b><br>Rise Like A Phoenix<br>2014</div>
+      </div>
+
+      <!-- 2015 - SWEDEN -->
+      <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2015/videos/2015-SE.mp4')">
+        <div class="preview-container">
+          <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2015/thumbs/2015-SE.jpeg" alt="Sweden 2015 - Måns Zelmerlöw">
+          <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2015/videos/2015-SE.mp4" muted loop></video>
+        </div>
+        <div class="video-title-text">Måns Zelmerlöw<br>Heroes<br>2015</div>
+      </div>
+
+      <!-- 2016 - UKRAINE -->
+      <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2016/videos/2016-UA.mp4')">
+        <div class="preview-container">
+          <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2016/thumbs/2016-UA.jpeg" alt="Ukraine 2016 - Jamala">
+          <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2016/videos/2016-UA.mp4" muted loop></video>
+        </div>
+        <div class="video-title-text">Jamala<br>1944<br>2016</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
