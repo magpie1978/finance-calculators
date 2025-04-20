@@ -114,7 +114,9 @@
       cursor: pointer;
     }
 
-    .sidebar {
+
+/* SIDEBAR STYLES */
+.sidebar {
   width: 20%;
   height: 100vh;
   position: fixed;
@@ -124,105 +126,13 @@
   overflow-y: auto;
   padding: 1rem;
   box-sizing: border-box;
-}
-
-.OLDsidebar-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.75rem;
-  text-decoration: none;
-  color: white;
-  padding: 0.25rem;
-  border-radius: 6px;
-  cursor: pointer; /* 👈 makes it feel clickable */
-  transition: background-color 0.2s ease;
-}
-
-.sidebar-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.75rem;
-  text-decoration: none;
-  color: white;
-  padding: 0.4rem;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.sidebar-row:hover {
-  background-color: #e50914; /* Netflix red */
-}
-    
-.OLDsidebar-row:hover {
-  background-color: #2a2a2a;
-}
-
-.sidebar-country {
-  font-size: 0.9rem;
-}
-
-    /// NEW
-.OLDsidebar-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.75rem;
-  text-decoration: none;
-  color: white;
-  padding: 0.25rem;
-  border-radius: 6px;
-  cursor: pointer; /* 👈 makes it feel clickable */
-  transition: background-color 0.2s ease;
-}
-
-.oldsidebar-row:hover {
-  background-color: #2a2a2a;
-}
-
-.sidebar-country {
-  font-size: 0.9rem;
-}
-
-    ///END
-.OLDsidebar-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.75rem;
-}
-
-.sidebar-flag {
-  width: 26px; /* smaller size */
-  height: 26px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-right: 10px;
-  flex-shrink: 0;
-  border: 0.5px gray; /* thin white border */
-}
-
-.sidebar-flag img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.OLDsidebar-country {
-  color: white;
-  font-size: 0.9rem;
-  text-decoration: none;
-}
-    
-.sidebar, .sidebar * {
   font-family: Arial, sans-serif;
-}
-    
-.main-content {
-  margin-left: 20%;
-  width: 80%;
+
+  /* Scrollbar styles */
+  scrollbar-width: thin;
+  scrollbar-color: #555 #1a1a1a;
 }
 
-
-    /* Custom scrollbar for WebKit browsers */
 .sidebar::-webkit-scrollbar {
   width: 8px;
 }
@@ -240,21 +150,187 @@
   background-color: #888;
 }
 
+.sidebar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding: 0.4rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-row:hover {
+  background-color: #e50914; /* Netflix red */
+}
+
+.sidebar-flag {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+  flex-shrink: 0;
+  border: 0.5px solid gray;
+}
+
+.sidebar-flag img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sidebar-country {
+  font-size: 0.9rem;
+  color: white;
+}
+
+/* END OF SIDEBAR */
+
+
+    .REMOVEsidebar {
+  width: 20%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #1a1a1a;
+  overflow-y: auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.REMOVEsidebar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  text-decoration: none;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 6px;
+  cursor: pointer; /* 👈 makes it feel clickable */
+  transition: background-color 0.2s ease;
+}
+
+.REMOVEsidebar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  text-decoration: none;
+  color: white;
+  padding: 0.4rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.REMOVEsidebar-row:hover {
+  background-color: #e50914; /* Netflix red */
+}
+    
+.REMOVEsidebar-row:hover {
+  background-color: #2a2a2a;
+}
+
+.REMOVEsidebar-country {
+  font-size: 0.9rem;
+}
+
+
+.REMOVEsidebar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  text-decoration: none;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 6px;
+  cursor: pointer; /* 👈 makes it feel clickable */
+  transition: background-color 0.2s ease;
+}
+
+.REMOVEsidebar-row:hover {
+  background-color: #2a2a2a;
+}
+
+.REMOVEsidebar-country {
+  font-size: 0.9rem;
+}
+
+   
+.REMOVEsidebar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.rEMOVEsidebar-flag {
+  width: 26px; /* smaller size */
+  height: 26px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+  flex-shrink: 0;
+  border: 0.5px gray; /* thin white border */
+}
+
+.REMOVEsidebar-flag img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.REMOVEsidebar-country {
+  color: white;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+    
+.REMOVEsidebar, .sidebar * {
+  font-family: Arial, sans-serif;
+}
+    
+.main-content {
+  margin-left: 20%;
+  width: 80%;
+}
+
+
+    /* Custom scrollbar for WebKit browsers */
+.REMOVEsidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.REMOVEsidebar::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.REMOVEsidebar::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+.REMOVEsidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #888;
+}
+
 /* For Firefox */
-.sidebar {
+.REMOVEsidebar {
   scrollbar-width: thin;
   scrollbar-color: #555 #1a1a1a;
 }
 
 
 /* Sidebar Hover */
-    .sidebar-row:hover {
+    .REMOVEsidebar-row:hover {
   background-color: #2a2a2a;
   border-radius: 6px;
   transition: background-color 0.2s ease;
 }
 
-.sidebar-country:hover {
+.REMOVEsidebar-country:hover {
   text-decoration: underline;
 }
 
