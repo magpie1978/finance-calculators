@@ -16,16 +16,17 @@
     }
 
 
-    .sidebar {
-      position: fixed;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 250px;
-      background-color: #1a1a1a;
-      padding-top: 60px;
-      overflow-y: auto;
-    }
+ .sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  font-size: 0.75rem; /* <-- Add this line to reduce text size */
+}
       
     .sidebar-row {
       padding: 4px 10px;
@@ -74,9 +75,9 @@
 }
 
     
-    .flag-icon {
-  width: 28px;
-  height: 28px;
+.flag-icon {
+  width: 22px; /* was 28px */
+  height: 22px;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -327,7 +328,7 @@
       <a href="montenegro.html"><img class="flag-icon" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/me.png" alt="Montenegro">Montenegro</a>
     </div>
     <div class="sidebar-row">
-      <a href="morocco.html"><img class="flag-icon" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/mc.png" alt="Morocco">Morocco</a>
+      <a href="morocco.html"><img class="flag-icon" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/ma.png" alt="Morocco">Morocco</a>
     </div>
     <div class="sidebar-row">
       <a href="netherlands.html"><img class="flag-icon" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/nl.png" alt="Netherlands">Netherlands</a>
@@ -339,7 +340,7 @@
       <a href="norway.html"><img class="flag-icon" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/no.png" alt="Norway">Norway</a>
     </div>
     <div class="sidebar-row">
-      <a href="poland.html"><img class="flag-icon" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/po.png" alt="Poland">Poland</a>
+      <a href="poland.html"><img class="flag-icon" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/pl.png" alt="Poland">Poland</a>
     </div>
     <div class="sidebar-row">
       <a href="portugal.html"><img class="flag-icon" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/pt.png" alt="Portugal">Portugal</a>
