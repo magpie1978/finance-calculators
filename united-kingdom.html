@@ -262,7 +262,11 @@ h1 {
      line-height: 1.2;
    }
 
-
+.video-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
   </style>
 </head>
 <body>
@@ -552,7 +556,7 @@ h1 {
 
     <div class="video-grid">
       
-<!-- 2014 - AUSTRIA -->
+<!-- 2014 - AUSTRIA -
             <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014/videos/2014-AT.mp4')">
               <div class="preview-container"
                    onmouseover="showPreview(this)"
@@ -567,8 +571,21 @@ h1 {
                 <div class="video-title-text"><b>Conchita Wurst</b><br>Rise Like A Phoenix<br>2014</div>
               </div>
             </div>
- 
-
+ -->
+<div class="video-item" nclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014/videos/2014-AT.mp4')">
+  <div class="preview-container"
+    onmouseover="showPreview(this)"
+    onmouseout="hidePreview(this)">
+    <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2014/thumbs/2014-AT.jpeg" alt="Ukraine 2016 - Jamala">
+    <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014/videos/2014-AT.mp4" muted loop></video>
+  </div>
+  <div class="video-title-with-icon" onclick="event.stopPropagation()">
+    <a href="belgium.html">
+                  <img class="icon-placeholder" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/at.png" alt="Flag">
+                </a>
+    <div class="video-title-text"><b>Conchita Wurst</b><br>Rise Like A Phoenix<br>2014</div>
+  </div>
+</div>
 
       
     </div>
