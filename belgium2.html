@@ -24,6 +24,9 @@ h1 {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* Adjust number of columns */
   gap: 20px;
+  width: 100%; /* Make sure it takes up the full available width */
+  max-width: 100%; /* Prevent the grid from exceeding the page width */
+  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
 }
 
 .video-section {
