@@ -15,33 +15,37 @@
       display: flex;
     }
 
-    .sidebar {
-      width: 240px;
-      background-color: #1c1c1c;
-      height: 100vh;
-      overflow-y: auto;
-      border-right: 1px solid #333;
-      padding: 20px 0;
 
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 250px;
+      background-color: #1a1a1a;
+      padding-top: 60px;
+      overflow-y: auto;
+    }
       
+    .sidebar-row {
+      padding: 4px 10px;
     }
 
     .sidebar a {
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 16px;
+      color: #fff;
       text-decoration: none;
-      color: #e5e5e5;
-      font-size: 0.9rem;
-      transition: background-color 0.2s;
-    }
-
-    .sidebar a:hover {
-      background-color: #e50914;
-      border-radius: 12px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background-color 0.3s;
     }
     
+    .sidebar a:hover {
+      background-color: #e50914;
+      border-radius: 8px;
+    }    
 
     .sidebar img {
   width: 28px;
@@ -50,6 +54,14 @@
   border-radius: 50%;
   border: 1px solid #555;
 }
+
+    .flag-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+    
     .main-content {
       flex: 1;
       padding: 40px 20px;
@@ -198,13 +210,26 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <a href="albania.html"><img src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/al.png"> Albania</a>
-      <a href="armenia.html"><img src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/am.png"> Armenia</a>
-      <a href="australia.html"><img src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/au.png"> Australia</a>
-      <a href="austria.html"><img src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/at.png"> Austria</a>
-      <a href="azerbaijan.html"><img src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/az.png"> Azerbaijan</a>
-      <!-- Add remaining countries as needed -->
+      <div class="sidebar-row">
+        <a href="united-kingdom.html">
+          <img class="flag-icon" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/gb.png" alt="UK Flag">
+          United Kingdom
+        </a>
+      </div>
+    <div class="sidebar-row">
+      <a href="sweden.html">
+        <img class="flag-icon" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/se.png" alt="Sweden Flag">
+        Sweden
+      </a>
     </div>
+    <div class="sidebar-row">
+      <a href="austria.html">
+        <img class="flag-icon" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/at.png" alt="Austria Flag">
+        Austria
+      </a>
+    </div>
+  <!-- Add more rows as needed -->
+</div>
 
     <!-- Main Content -->
     <div class="main-content">
