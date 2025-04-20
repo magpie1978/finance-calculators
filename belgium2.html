@@ -229,7 +229,7 @@ h1 {
 
   </style>
 </head>
-<body>
+<body oncontextmenu="return false">
 
 
 <div class="sidebar">
@@ -504,6 +504,125 @@ h1 {
 
   
 <div class="main-content">
+  
+
+   <div class="grid-section">
+      <div class="section-header">
+         <h4>Eurovision Winners</h4>
+         <a class="view-more" href="belgium.html">VIEW MORE</a>
+      </div>
+
+      <div class="grid-container">
+         <!-- 2014 - AUSTRIA -->
+         <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2014/videos/2014-AT.mp4')">
+            <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+               <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2014/thumbs/2014-AT.jpeg" alt="Austria 2014 - Conchita Wurst">
+               <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2014/videos/2014-AT.mp4" muted loop></video>
+            </div>
+            <div class="video-title-with-icon" onclick="event.stopPropagation()">
+               <a href="belgium.html">
+                  <img class="icon-placeholder" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/at.png" alt="Flag">
+               </a>
+               <div class="video-title-text"><b>Conchita Wurst</b><br>Rise Like A Phoenix<br>2014</div>
+            </div>
+         </div>
+
+         <!-- 2015 - SWEDEN -->
+         <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2015/videos/2015-SE.mp4')">
+            <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+               <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2015/thumbs/2015-SE.jpeg" alt="Sweden 2015 - Måns Zelmerlöw">
+               <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2015/videos/2015-SE.mp4" muted loop></video>
+            </div>
+            <div class="video-title-with-icon" onclick="event.stopPropagation()">
+               <a href="belgium.html">
+                  <img class="icon-placeholder" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/se.png" alt="Flag">
+               </a>
+               <div class="video-title-text">Måns Zelmerlöw<br>Heroes<br>2015</div>
+            </div>
+         </div>
+
+         <!-- 2016 - UKRAINE -->
+         <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2016/videos/2016-UA.mp4')">
+            <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+               <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2016/thumbs/2016-UA.jpeg" alt="Ukraine 2016 - Jamala">
+               <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2016/videos/2016-UA.mp4" muted loop></video>
+            </div>
+            <div class="video-title-with-icon" onclick="event.stopPropagation()">
+               <a href="belgium.html">
+                  <img class="icon-placeholder" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/ua.png" alt="Flag">
+               </a>
+               <div class="video-title-text">Jamala<br>1944<br>2016</div>
+            </div>
+         </div>
+
+         <!-- 2017 - PORTUGAL -->
+         <div class="video-item" onclick="openModalWithVideo('https://euroflix.s3.eu-north-1.amazonaws.com/2017/videos/2017-PT.mp4')">
+            <div class="preview-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+               <img src="https://euroflix.s3.eu-north-1.amazonaws.com/2017/thumbs/2017-PT.jpeg" alt="Portugal 2017 - Salvador Sobral">
+               <video src="https://euroflix.s3.eu-north-1.amazonaws.com/2017/videos/2017-PT.mp4" muted loop></video>
+            </div>
+            <div class="video-title-with-icon" onclick="event.stopPropagation()">
+               <a href="belgium.html">
+                  <img class="icon-placeholder" src="https://euroflix.s3.eu-north-1.amazonaws.com/flags/pt.png" alt="Flag">
+               </a>
+               <div class="video-title-text">Salvador Sobral<br>Amar pelos dois<br>2017</div>
+            </div>
+         </div>
+
+         <!-- Add the rest of your videos here in the same format -->
+
+      </div>
+   </div>
+
+   <!-- Modal -->
+   <div id="videoModal" class="modal" onclick="closeModal(event)">
+      <span class="modal-close" onclick="closeModal(event)">&times;</span>
+      <video id="modalVideo" controls autoplay controlsList="nodownload"></video>
+   </div>
+
+   <script>
+      function openModalWithVideo(videoUrl) {
+         const modal = document.createElement('div');
+         modal.classList.add('modal');
+         modal.style.display = 'flex';
+
+         modal.innerHTML = `
+            <div class="modal-content">
+               <span class="close-button" onclick="document.body.removeChild(this.closest('.modal'))">&times;</span>
+               <video 
+                  src="${videoUrl}" 
+                  controls 
+                  autoplay 
+                  controlsList="nodownload" 
+                  oncontextmenu="return false"
+               ></video>
+            </div>
+         `;
+
+         document.body.appendChild(modal);
+      }
+
+      function closeModal() {
+         const modal = document.getElementById("videoModal");
+         modal.style.display = "none";
+      }
+
+      function showPreview(container) {
+         const video = container.querySelector('video');
+         const img = container.querySelector('img');
+         img.style.display = 'none';
+         video.style.display = 'block';
+         video.play();
+      }
+
+      function hidePreview(container) {
+         const video = container.querySelector('video');
+         const img = container.querySelector('img');
+         video.pause();
+         video.style.display = 'none';
+         img.style.display = 'block';
+      }
+   </script>
 
 
   <!-- Modal -->
