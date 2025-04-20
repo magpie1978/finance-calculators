@@ -22,11 +22,11 @@ h1 {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Adjust number of columns */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 4 videos per row */
   gap: 20px;
-  width: 100%; /* Make sure it takes up the full available width */
-  max-width: 100%; /* Prevent the grid from exceeding the page width */
-  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .video-section {
@@ -42,12 +42,32 @@ h1 {
 .preview-container {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* Aspect ratio 16:9 */
+  padding-top: 56.25%; /* 16:9 aspect ratio */
   overflow: hidden;
   border-radius: 10px;
   cursor: pointer;
 }
 
+.preview-container img,
+.preview-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.video-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%; /* Prevent overflow */
+  max-height: 400px; /* Adjust to prevent videos from becoming too large */
+}
+  
 .preview-container img,
 .preview-container video {
   position: absolute;
@@ -127,8 +147,8 @@ h1 {
 }
 
 .sidebar {
-  width: 20%;
-  height: 100vh;
+  width: 20%;  /* Adjust as needed */
+  height: 100vh; /* Full vertical height */
   position: fixed;
   top: 0;
   left: 0;
@@ -169,8 +189,9 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  max-width: 40px;  /* Adjust flag size */
+  max-height: 40px;  /* Ensure flags are uniform */
 }
-
 .sidebar-country {
   font-size: 0.9rem;
   color: white;
@@ -202,8 +223,8 @@ h1 {
 .main-content {
   margin-left: 20%;
   width: 80%; /* Adjust width as needed */
-  max-width: 100%; /* Prevent overflow */
-  box-sizing: border-box; /* Make sure padding and borders are accounted for */
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 </style>
