@@ -4,43 +4,190 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ESCFlix</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body */
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #141414;
+      display: flex;
+      height: 100vh; /* Ensure full viewport height */
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 20%; /* 20% of the page width */
+      background-color: #2b2b2b;
+      color: white;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    /* Sidebar Flag Style */
+    .sidebar-flag {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .sidebar-flag img {
+      width: 40px; /* Flag image size */
+      height: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .sidebar-flag span {
+      color: white;
+      font-size: 14px;
+    }
+
+    /* Main Content */
+    .main-content {
+      width: 80%; /* 80% of the page width */
+      margin-left: 20%; /* Space for the sidebar */
+      padding: 20px;
+      box-sizing: border-box;
+      overflow-x: hidden; /* Prevent horizontal overflow */
+    }
+
+    /* Grid Layout for Videos */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+      gap: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .grid-item {
+      background-color: #333;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+      color: white;
+      padding: 10px;
+    }
+
+    .grid-item img {
+      width: 100%; /* Make image take up the full width */
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 8px;
+    }
+
+    .grid-item p {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    /* Scroll Buttons */
+    .scroll-buttons {
+      position: fixed;
+      top: 50%;
+      right: 10px;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(-50%);
+    }
+
+    .scroll-left, .scroll-right {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 50%;
+      margin: 10px 0;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .scroll-left:hover, .scroll-right:hover {
+      background-color: #444;
+    }
+  </style>
 </head>
 <body>
   <!-- Sidebar -->
   <div class="sidebar">
     <div class="sidebar-flag">
-      <img src="path_to_flag_image1.jpg" alt="Country Flag">
+      <img src="https://your-s3-bucket-url/flags/flag1.jpg" alt="Country Flag 1">
       <span>Country Name 1</span>
     </div>
     <div class="sidebar-flag">
-      <img src="path_to_flag_image2.jpg" alt="Country Flag">
+      <img src="https://your-s3-bucket-url/flags/flag2.jpg" alt="Country Flag 2">
       <span>Country Name 2</span>
     </div>
-    <!-- Add more flags here -->
+    <!-- Add more flags here with the correct S3 URLs -->
   </div>
 
   <!-- Main Content -->
   <div class="main-content">
     <div class="grid-container">
       <div class="grid-item">
-        <img src="path_to_video_thumbnail1.jpg" alt="Video 1">
+        <img src="https://your-s3-bucket-url/videos/video1-thumbnail.jpg" alt="Video 1">
         <p>Video 1</p>
       </div>
       <div class="grid-item">
-        <img src="path_to_video_thumbnail2.jpg" alt="Video 2">
+        <img src="https://your-s3-bucket-url/videos/video2-thumbnail.jpg" alt="Video 2">
         <p>Video 2</p>
       </div>
       <div class="grid-item">
-        <img src="path_to_video_thumbnail3.jpg" alt="Video 3">
+        <img src="https://your-s3-bucket-url/videos/video3-thumbnail.jpg" alt="Video 3">
         <p>Video 3</p>
       </div>
       <div class="grid-item">
-        <img src="path_to_video_thumbnail4.jpg" alt="Video 4">
+        <img src="https://your-s3-bucket-url/videos/video4-thumbnail.jpg" alt="Video 4">
         <p>Video 4</p>
       </div>
-      <!-- Add more videos here -->
+      <!-- Add more videos here with the correct S3 URLs -->
     </div>
   </div>
+
+  <!-- Scroll Buttons -->
+  <div class="scroll-buttons">
+    <button class="scroll-left" onclick="scrollLeft()">◁</button>
+    <button class="scroll-right" onclick="scrollRight()">▷</button>
+  </div>
+
+  <script>
+    // Function to scroll the grid to the left
+    function scrollLeft() {
+      const gridContainer = document.querySelector('.grid-container');
+      const currentTransform = getComputedStyle(gridContainer).transform;
+      
+      if (currentTransform === 'none') {
+        gridContainer.style.transform = 'translateX(-25%)';
+      } else {
+        const matrix = new WebKitCSSMatrix(currentTransform);
+        gridContainer.style.transform = `translateX(${matrix.m41 - 25}%)`;
+      }
+    }
+
+    // Function to scroll the grid to the right
+    function scrollRight() {
+      const gridContainer = document.querySelector('.grid-container');
+      const currentTransform = getComputedStyle(gridContainer).transform;
+      
+      if (currentTransform === 'none') {
+        gridContainer.style.transform = 'translateX(25%)';
+      } else {
+        const matrix = new WebKitCSSMatrix(currentTransform);
+        gridContainer.style.transform = `translateX(${matrix.m41 + 25}%)`;
+      }
+    }
+  </script>
 </body>
 </html>
