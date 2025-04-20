@@ -171,6 +171,22 @@
         color: #e50914;
         text-decoration: none;
       }
+
+      .sidebar-flag {
+  width: 50px; /* Adjust the size of the circle */
+  height: 50px; /* Ensure the container is square */
+  border-radius: 50%; /* Make it circular */
+  overflow: hidden; /* Ensure the image fits within the circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-flag img {
+  width: 80%; /* Adjust to make the image smaller */
+  height: 80%; /* Keep the image proportional */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+}
     </style>
   </head>
   <body oncontextmenu="return false">
