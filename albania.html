@@ -343,6 +343,120 @@
       }
 
       
+      /*  BANNER CAROUSEL */
+      .main-header {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+      }
+      
+      .banner-carousel {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      
+      .banner-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        z-index: 1;
+      }
+      
+      .banner-image.active {
+        opacity: 1;
+        z-index: 2;
+      }
+      
+      /* Overlay layout */
+      .header-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        z-index: 3;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .home-link {
+        color: #fff;
+        font-size: 1rem;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      
+      .search-input {
+        padding: 6px 10px;
+        border-radius: 20px;
+        border: none;
+        outline: none;
+        font-size: 0.9rem;
+        width: 200px;
+      }
+      
+      /* Menu button and dropdown */
+      .menu-button {
+        position: relative;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: #e50914;
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+      }
+      
+      .menu-dropdown {
+        display: none;
+        position: absolute;
+        top: 45px;
+        right: 0;
+        background-color: #1f1f1f;
+        border-radius: 6px;
+        padding: 10px;
+        width: 150px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        flex-direction: column;
+      }
+      
+      .menu-dropdown a {
+        color: white;
+        text-decoration: none;
+        padding: 5px 0;
+        display: block;
+      }
+      
+      .menu-dropdown a:hover {
+        color: #e50914;
+      }
+      
+      /* Toggle dropdown on hover */
+      .menu-button:hover .menu-dropdown {
+        display: flex;
+      }
+
+
+      
       </style>
   </head>
 
@@ -778,6 +892,20 @@
       video.style.display = 'none';
       img.style.display = 'block';
     }
+
+
+    //SCRIPT FOR BANNER CAROUSEL
+      let currentIndex = 0;
+      const banners = document.querySelectorAll('.banner-image');
+
+        function showNextBanner() {
+          banners[currentIndex].classList.remove('active');
+          currentIndex = (currentIndex + 1) % banners.length;
+          banners[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextBanner, 6000); // 6 seconds
+
   </script>
   </body>
 </html>
