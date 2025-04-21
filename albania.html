@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>ESCFlix | Albania</title>
   <style>
+    
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       margin: 0;
@@ -15,22 +16,44 @@
       display: flex;
     }
 
+    .sidebar {
+      width: 200px;
+      overflow-y: scroll;
+      height: 100vh;
+      padding: 10px;
+      background-color: #111;
+      color: white;
+      font-size: 14px;
+    }
 
- .sidebar a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #fff;
-  text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: background-color 0.3s;
-  font-size: 0.8rem; /* <-- Add this line to reduce text size */
-}
+
+     .sidebar a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+        font-size: 0.8rem; /* <-- Add this line to reduce text size */
+      }
+
+
+    .sidebar-row a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
       
-    .sidebar-row {
+    .OLDsidebar-row {
       padding: 4px 10px;
     }
+
+    .sidebar-row {
+    margin: 5px 0;
+  }
 
     
     .sidebar a:hover {
@@ -65,18 +88,32 @@
 }
 
     
-.flag-icon {
+.OLDflag-icon {
   width: 22px; /* was 28px */
   height: 22px;
   object-fit: cover;
   border-radius: 50%;
 }
-    
- .main-content {
+
+    .flag-icon {
+    width: 22px;
+    height: auto; /* was 22px */
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+ .OLDmain-content {
   flex: 1;
   padding: 40px 20px;
   margin-left: 50px; /* Add this line */
 }
+
+
+    .main-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+
 
     h4 {
       font-size: 1.5rem;
@@ -85,31 +122,53 @@
       margin: 0 0 10px 10px;
     }
 
-    .grid-container {
+    .OLDgrid-container {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
 
-    .video-item {
+     .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+    .OLDvideo-item {
       background-color: #333;
       border-radius: 8px;
       overflow: hidden;
       transition: transform 0.3s ease;
     }
 
+    .video-item {
+    cursor: pointer;
+    background-color: #1a1a1a;
+    padding: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
     .video-item:hover {
       transform: scale(1.05);
     }
 
-    .preview-container {
+    .OLDpreview-container {
       width: 100%;
       height: 170px;
       position: relative;
     }
 
-    .preview-container img,
-    .preview-container video {
+    .preview-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+    border-radius: 6px;
+  }
+    .OLDpreview-container img,
+    .OLDpreview-container video {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -118,11 +177,30 @@
       left: 0;
     }
 
+     .preview-container img,
+  .preview-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
     .preview-container video {
       display: none;
     }
 
-    .video-title-with-icon {
+
+    .preview-container:hover video {
+    display: block;
+  }
+
+  .preview-container:hover img {
+    display: none;
+  }
+
+    .OLDvideo-title-with-icon {
       display: flex;
       color: #e5e5e5;
       background: #1f1f1f;
@@ -133,7 +211,15 @@
       font-size: 0.75rem;
     }
 
-    .icon-placeholder {
+     .video-title-with-icon {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    gap: 8px;
+    color: white;
+  }
+
+    .OLDicon-placeholder {
       width: 24px;
       height: 24px;
       border-radius: 50%;
@@ -141,6 +227,12 @@
       object-fit: cover;
       margin-left: 8px;
     }
+
+     .icon-placeholder {
+    width: 24px;
+    height: auto;
+    border-radius: 3px;
+  }
 
     .video-title-text {
       line-height: 1.2;
