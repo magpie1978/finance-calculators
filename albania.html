@@ -351,24 +351,17 @@
         overflow: hidden;
       }
       
-      .banner-carousel {
-        width: 100%;
-        height: 100%;
-        position: relative;
-      }
-      
-      .banner-image {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        top: 0;
-        left: 0;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-        z-index: 1;
-      }
-      
+.banner-static {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.banner-static img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}      
       .banner-image.active {
         opacity: 1;
         z-index: 2;
@@ -487,31 +480,29 @@
 
     <header class="main-header">
       <div class="header-overlay">
-        <div class="banner-text">
-          <h2>Welcome to ESCFlix</h2>
-          <p>Explore Eurovision performances by year, country, or winner</p>
-          <p>Watch, search, and save your favorites</p>
-        </div>
         <a class="home-link" href="index.html">Home</a>
-          <div class="header-actions">
-            <input type="text" class="search-input" placeholder="Search...">
-              <div class="menu-button">
-              ☰
-                <div class="menu-dropdown">
-                  <a href="#">My Favorites</a>
-                  <a href="#">Log Out</a>
-                </div>
+        <div class="header-actions">
+          <input type="text" class="search-input" placeholder="Search...">
+            <div class="menu-button">
+            ☰
+              <div class="menu-dropdown">
+                <a href="#">My Favorites</a>
+                <a href="#">Log Out</a>
               </div>
-          </div>
+            </div>
+        </div>
       </div>
 
-      <div class="banner-carousel">
-        <img class="banner-image" src="https://euroflix.s3.eu-north-1.amazonaws.com/banners/banner4.jpg" alt="Banner 4">
-        <img class="banner-image" src="https://euroflix.s3.eu-north-1.amazonaws.com/banners/banner4.jpg" alt="Banner 4">
-        <img class="banner-image" src="https://euroflix.s3.eu-north-1.amazonaws.com/banners/banner4.jpg" alt="Banner 4">
-        <img class="banner-image" src="https://euroflix.s3.eu-north-1.amazonaws.com/banners/banner4.jpg" alt="Banner 4">
-      </div>
-    </header>
+  <div class="banner-static">
+    <img src="https://euroflix.s3.eu-north-1.amazonaws.com/banner/banner4.jpg" alt="ESCFlix Banner">
+  </div>
+
+  <div class="banner-text">
+    <h2>Welcome to ESCFlix</h2>
+    <p>Explore Eurovision performances by year, country, or winner</p>
+    <p>Watch, search, and save your favorites</p>
+  </div>
+</header>
 
 
 
@@ -923,17 +914,7 @@
     }
 
 
-    //SCRIPT FOR BANNER CAROUSEL
-      let currentIndex = 0;
-      const banners = document.querySelectorAll('.banner-image');
-
-        function showNextBanner() {
-          banners[currentIndex].classList.remove('active');
-          currentIndex = (currentIndex + 1) % banners.length;
-          banners[currentIndex].classList.add('active');
-        }
-
-        setInterval(showNextBanner, 6000); // 6 seconds
+   
 
   </script>
   </body>
