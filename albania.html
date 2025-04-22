@@ -392,6 +392,22 @@
         align-items: center;
         gap: 20px;
       }
+
+      .header-links {
+  display: flex;
+  gap: 20px;
+}
+
+.header-links a {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.header-links a:hover {
+  color: #e50914;
+}
       
       .banner-text {
         position: absolute;
@@ -483,18 +499,22 @@
 
   <body oncontextmenu="return false">
 
+    <!-- NEW CODE FOR HEADER -->
     <header class="main-header">
       <div class="header-overlay">
-        <a class="home-link" href="escflix.html">Home</a>
+        <div class="header-links">
+          <a class="home-link" href="escflix.html">Home</a>
+          <a class="countries-link" href="albania.html">Countries</a>
+        </div>
         <div class="header-actions">
           <input type="text" class="search-input" placeholder="Search...">
-            <div class="menu-button">
+          <div class="menu-button">
             ☰
-              <div class="menu-dropdown">
-                <a href="#">My Favorites</a>
-                <a href="#">Log Out</a>
-              </div>
+            <div class="menu-dropdown">
+              <a href="#">My Favorites</a>
+              <a href="#">Log Out</a>
             </div>
+          </div>
         </div>
       </div>
 
